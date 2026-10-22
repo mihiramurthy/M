@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CareAtlas — Access-to-care navigator</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header>
+      <p class="eyebrow">CareAtlas</p>
+      <h1>Find care you can actually afford</h1>
+      <p class="lede">
+        Match sliding-scale clinics by language, specialty, and distance — then
+        leave with a visit-prep checklist.
+      </p>
+    </header>
+
+    <main>
+      <form id="match-form">
+        <label>
+          Specialty
+          <select name="specialty">
+            <option value="primary">Primary care</option>
+            <option value="behavioral">Behavioral health</option>
+            <option value="obgyn">OB/GYN</option>
+            <option value="dental">Dental</option>
+            <option value="urgent">Urgent care</option>
+          </select>
+        </label>
+        <label>
+          Languages
+          <select name="language">
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+            <option value="am">Amharic</option>
+            <option value="zh">Chinese</option>
+            <option value="fr">French</option>
+          </select>
+        </label>
+        <label class="check">
+          <input type="checkbox" name="uninsured" checked /> Uninsured / low income
+        </label>
+        <label class="check">
+          <input type="checkbox" name="medicaid" /> Has Medicaid
+        </label>
+        <label>
+          Max miles
+          <input type="number" name="maxMiles" value="25" min="1" max="100" />
+        </label>
+        <button type="submit">Rank clinics</button>
+      </form>
+
+      <section id="results" aria-live="polite"></section>
+      <section id="prep"></section>
+    </main>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

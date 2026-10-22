@@ -1,0 +1,19 @@
+{
+  "name": "mihira-murthy-portfolio",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "projects/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w @mihira/web",
+    "build": "npm run build -w @mihira/web",
+    "start": "npm run start -w @mihira/web",
+    "train:aquifer": "npm run train -w @mihira/aquifer-net",
+    "demo:care-atlas": "npm run dev -w @mihira/care-atlas",
+    "demo:claim-trail": "npm run dev -w @mihira/claim-trail",
+    "demo:aquifer-net": "npm run dev -w @mihira/aquifer-net",
+    "demo:wattline": "npm run dev -w @mihira/wattline",
+    "demo:loan-lattice": "npm run dev -w @mihira/loan-lattice"
+  }
+}
