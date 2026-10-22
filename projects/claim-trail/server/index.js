@@ -19,9 +19,33 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(join(__dirname, "..", "public")));
 
+const PRESETS = [
+  {
+    id: "viral-grid",
+    label: "Viral absolutist claim (young domain)",
+    url: "https://viral-share.test/post/1",
+    claim: "BREAKING: you won't believe the entire Eastern grid failed last night — share before it's deleted",
+  },
+  {
+    id: "reuters-local",
+    label: "Established wire with epistemic markers",
+    url: "https://reuters.com/world/example",
+    claim: "According to methodology in a peer-reviewed dataset, outages were localized to two substations",
+  },
+  {
+    id: "thin-news",
+    label: "Thin archive local blog",
+    url: "https://example-news.test/story/grid-outage",
+    claim: "The entire Eastern grid failed last night",
+  },
+];
+
 app.get("/api/health", (_req, res) => {
   res.json({ ok: true, service: "claim-trail", metrics });
 });
+
+app.get("/api/presets", (_req, res) => res.json({ presets: PRESETS }));
+
 
 app.get("/api/metrics", (_req, res) => {
   res.json(metrics);

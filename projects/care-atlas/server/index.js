@@ -51,6 +51,33 @@ app.post("/api/prep", (req, res) => {
   res.json(buildPrepChecklist(profile, clinic));
 });
 
+/** Side-by-side: how sliding-scale vs boutique ranks for the same profile */
+app.post("/api/explain", (req, res) => {
+  const profile = {
+    zip: req.body.zip ?? "20740",
+    lat: Number(req.body.lat ?? 38.9897),
+    lon: Number(req.body.lon ?? -76.9378),
+    uninsured: Boolean(req.body.uninsured ?? true),
+    medicaid: Boolean(req.body.medicaid),
+    incomeBand: req.body.incomeBand ?? "low",
+    languages: Array.isArray(req.body.languages) ? req.body.languages : ["en"],
+    specialty: req.body.specialty ?? "primary",
+    maxMiles: Number(req.body.maxMiles ?? 25),
+  };
+  const matches = matchClinics(clinics, profile);
+  const top = matches[0] ?? null;
+  const boutique = matches.find((m) => !m.clinic.slidingScale) ?? null;
+  res.json({
+    profile,
+    topPick: top,
+    contrast: boutique,
+    narrative: top
+      ? `${top.clinic.name} leads because ${top.reasons.slice(0, 3).join("; ")}.`
+      : "No clinics in radius — widen max miles or change specialty.",
+  });
+});
+
 app.listen(port, () => {
   console.log(`CareAtlas listening on http://localhost:${port}`);
 });
+

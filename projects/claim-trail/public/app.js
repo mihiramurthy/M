@@ -9,6 +9,29 @@ async function refreshMetrics() {
   metricsEl.innerHTML = `<strong>Observability</strong> · enqueued ${m.enqueued} · completed ${m.completed} · failed ${m.failed} · avg ${m.avgMs}ms`;
 }
 
+async function loadPresets() {
+  const { presets } = await (await fetch("/api/presets")).json();
+  const bar = document.createElement("div");
+  bar.style.display = "flex";
+  bar.style.flexWrap = "wrap";
+  bar.style.gap = "0.5rem";
+  bar.style.marginBottom = "1rem";
+  for (const p of presets) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.textContent = p.label;
+    btn.style.fontSize = "0.75rem";
+    btn.addEventListener("click", () => {
+      form.url.value = p.url;
+      form.claim.value = p.claim;
+    });
+    bar.appendChild(btn);
+  }
+  form.parentElement.insertBefore(bar, form);
+}
+loadPresets();
+
+
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const fd = new FormData(form);

@@ -1,36 +1,42 @@
 # Mihira Murthy — Portfolio & original demos
 
-Personal site + original CS demos (not employer/club rebuilds). Target host: **Vercel**.
+Recruiter-facing personal site plus **original** CS demos (not employer/club rebuilds). Live host: **Vercel**.
 
-## Status (WIP — 2026-10-22)
-
-In progress on branch `cursor/portfolio-original-demos-52db`.
-
-### Projects chosen
-
-| Slug | Focus | Problem |
-|------|--------|---------|
-| **CareAtlas** | Fullstack | Access-to-care matching (sliding-scale, language, specialty) + visit prep |
-| **ClaimTrail** | Backend / agents | Claim provenance pipeline (queue workers, trust score, observability) |
-| **AquiferNet** | ML + UI | Groundwater contamination risk model + interactive explorer |
-| **Wattline** | Frontend / viz | Grid carbon intensity & demand-response planner |
-| **LoanLattice** | Fullstack / finance | Student loan repayment strategy lab (IDR vs standard) |
-
-### Done tonight
-
-- Monorepo scaffold (`apps/web` Next.js shell, `projects/*`)
-- **CareAtlas** — runnable Express app (match engine, seed data, UI, tests)
-- **ClaimTrail** — runnable Express pipeline (workers, scoring, UI, tests)
-- Resume PDF copied to `public/`
-- Portfolio Next.js config/tailwind started (pages/UI not built yet)
-
-### Resume tomorrow
+## Quick start (portfolio)
 
 ```bash
 npm install
-cd projects/care-atlas && npm install && npm run seed && npm run dev   # :4100
-cd projects/claim-trail && npm install && npm run dev                  # :4200
-# then: AquiferNet, Wattline, LoanLattice → portfolio case studies → Vercel
+npm run dev
+# http://localhost:3000
 ```
 
-See `/cursor/stores/self/internal/handoff-2026-10-22.md` in the Project store for the full handoff.
+- Home: About, Experience, Projects (filterable), Skills, Contact, internship slot
+- Case studies: `/projects/[slug]`
+- Live demos: `/demos/[slug]`
+- Resume: `/Mihira_Murthy_Resume.pdf`
+
+## Original projects
+
+| Project | Focus | Standalone | Live demo |
+|---------|--------|------------|-----------|
+| **CareAtlas** | Fullstack — access-to-care matching | `:4100` | `/demos/care-atlas` |
+| **ClaimTrail** | Backend — claim provenance pipeline | `:4200` | `/demos/claim-trail` |
+| **AquiferNet** | ML — groundwater risk | `:4300` | `/demos/aquifer-net` |
+| **Wattline** | Frontend — grid carbon planner | `:4400` | `/demos/wattline` |
+| **LoanLattice** | Fullstack — student loan strategies | `:4500` | `/demos/loan-lattice` |
+
+```bash
+# examples
+cd projects/care-atlas && npm install && npm run seed && npm run dev
+cd projects/aquifer-net && pip install -r requirements.txt && npm run train && npm run dev
+```
+
+Each project has its own README, tests (`npm test`), and runnable UI.
+
+## Deploy
+
+See [DEPLOY.md](./DEPLOY.md). Import the GitHub repo into Vercel; no env secrets required for the public site.
+
+## Constraint
+
+Resume content appears in About / Experience / Education only. Demos are invented world-problem projects — not Exiger, Nokia, BAH, or ADC People Portal rebuilds.
