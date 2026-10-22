@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AquiferNet — Groundwater risk explorer</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header>
+      <p class="eyebrow">AquiferNet</p>
+      <h1>See contamination risk before it hits the tap</h1>
+      <p class="lede">
+        Trained logistic model on nitrate, chemistry, land-use proximity, and well
+        depth — with offline metrics and what-if inference.
+      </p>
+    </header>
+    <section id="metrics" class="panel"></section>
+    <div class="layout">
+      <section>
+        <h2>Monitoring sites</h2>
+        <div id="sites"></div>
+      </section>
+      <section class="panel">
+        <h2>What-if predictor</h2>
+        <form id="predict-form"></form>
+        <div id="prediction"></div>
+      </section>
+    </div>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "@mihira/aquifer-net",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "train": "python3 ml/train.py",
+    "dev": "node --watch server/index.js",
+    "start": "node server/index.js",
+    "test": "node --test server/infer.test.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
+}
