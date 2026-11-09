@@ -14,6 +14,7 @@
     "demo:claim-trail": "npm run dev -w @mihira/claim-trail",
     "demo:aquifer-net": "npm run dev -w @mihira/aquifer-net",
     "demo:wattline": "npm run dev -w @mihira/wattline",
-    "demo:loan-lattice": "npm run dev -w @mihira/loan-lattice"
+    "demo:loan-lattice": "npm run dev -w @mihira/loan-lattice",
+    "demo:token-lens": "npm run dev -w @mihira/token-lens"
   }
 }

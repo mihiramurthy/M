@@ -27,6 +27,7 @@ const config: Config = {
           slate: "#1F2A33",
           pine: "#1C3330",
           inkblue: "#1A2030",
+          graphite: "#0F1412",
         },
       },
       fontFamily: {

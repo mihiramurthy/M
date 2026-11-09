@@ -6,6 +6,7 @@ const stageBg: Record<Project["stage"], string> = {
   slate: "bg-stage-slate",
   olive: "bg-stage-olive",
   cocoa: "bg-stage-cocoa",
+  graphite: "bg-stage-graphite",
 };
 
 function Phone({ children, className = "" }: { children: React.ReactNode; className?: string }) {
@@ -117,7 +118,36 @@ function LoanUI() {
   );
 }
 
+function TokenLensUI() {
+  return (
+    <div className="flex h-full flex-col gap-2 p-3 text-[9px]">
+      <div className="flex items-center justify-between">
+        <span className="font-semibold text-ink">TokenLens</span>
+        <span className="rounded-full bg-emerald-100 px-1.5 text-[8px] text-emerald-700">live</span>
+      </div>
+      <div className="grid grid-cols-3 gap-1">
+        {["$1.2k", "0.81q", "14↓"].map((v) => (
+          <div key={v} className="rounded-md bg-white p-1.5 text-center font-mono text-[8px] shadow-sm">
+            {v}
+          </div>
+        ))}
+      </div>
+      <div className="rounded-md bg-white p-2 shadow-sm">
+        <p className="font-medium text-ink">gpt-4o → gpt-4o-mini</p>
+        <p className="text-ink-muted">trivial · quality 0.88 · save $0.04</p>
+        <div className="mt-1 h-1.5 rounded-full bg-black/5">
+          <div className="h-full w-2/3 rounded-full bg-emerald-500" />
+        </div>
+      </div>
+      <div className="rounded-md bg-[#0b1220] p-2 font-mono text-[8px] text-emerald-300">
+        POST /v1/chat/completions
+      </div>
+    </div>
+  );
+}
+
 const ui: Record<string, React.ReactNode> = {
+  "token-lens": <TokenLensUI />,
   "care-atlas": <CareAtlasUI />,
   "claim-trail": <ClaimTrailUI />,
   "aquifer-net": <AquiferUI />,
@@ -153,7 +183,9 @@ export function ProjectShowcaseCard({
       </div>
 
       <div className="pointer-events-none absolute -bottom-6 -right-2 flex items-end gap-3 opacity-95 transition duration-500 group-hover:-translate-y-2 md:right-6">
-        {project.slug === "wattline" || project.slug === "aquifer-net" ? (
+        {project.slug === "wattline" ||
+        project.slug === "aquifer-net" ||
+        project.slug === "token-lens" ? (
           <Laptop>{ui[project.slug]}</Laptop>
         ) : (
           <>

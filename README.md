@@ -15,7 +15,13 @@ npm run dev
 - Live demos: `/demos/[slug]`
 - Resume: `/Mihira_Murthy_Resume.pdf`
 
-## Original projects
+## Projects tab (flagship)
+
+| Project | Focus | Standalone | Live demo |
+|---------|--------|------------|-----------|
+| **TokenLens** | AI spend intelligence + quality-gated routing | `:4600` | `/demos/token-lens` |
+
+## Earlier lab demos (still in repo)
 
 | Project | Focus | Standalone | Live demo |
 |---------|--------|------------|-----------|

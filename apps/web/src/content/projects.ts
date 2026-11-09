@@ -16,7 +16,7 @@ export type Project = {
   short: string;
   tags: ProjectTag[];
   featured: boolean;
-  stage: "cocoa" | "olive" | "slate" | "pine" | "inkblue";
+  stage: "cocoa" | "olive" | "slate" | "pine" | "inkblue" | "graphite";
   role: string;
   type: string;
   tools: string[];
@@ -34,13 +34,109 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "token-lens",
+    name: "TokenLens",
+    tagline: "AI spend intelligence with evidence-based routing",
+    short:
+      "Proxy OpenAI/Anthropic-style calls, attribute cost to teams, score output quality / hallucination risk, and downgrade models only when the evidence says you can.",
+    tags: ["fullstack", "backend"],
+    featured: true,
+    stage: "graphite",
+    role: "Fullstack / systems engineer",
+    type: "Personal project",
+    tools: ["Node.js", "Express", "proxy logging", "heuristics", "Next.js"],
+    problem:
+      "LLM spend grows silently across teams. Blind cheaper-model routing tanks quality; teams need cost attribution paired with output-quality evidence.",
+    approach:
+      "TokenLens sits as a thin proxy in front of chat APIs. Every request is logged, classified by prompt complexity, scored for quality/hallucination risk, attributed to a team, and evaluated for waste — so routing recommendations are evidence-based.",
+    architecture: [
+      "OpenAI- and Anthropic-compatible proxy endpoints",
+      "Prompt complexity classifier (trivial → reasoning)",
+      "Output-quality / hallucination scorer with factor lists",
+      "Team cost attribution + waste → cheaper-model recommender",
+      "Polylane-inspired observability dashboard",
+    ],
+    tech: ["Node.js", "Express", "JavaScript", "mock + optional live providers"],
+    highlights: [
+      "Works offline with mock providers; optional OPENAI_API_KEY / ANTHROPIC_API_KEY",
+      "Downgrade only when complexity + quality headroom agree",
+      "Unit-tested classifier, quality scorer, and routing rules",
+    ],
+    sections: [
+      {
+        id: "overview",
+        label: "Overview",
+        eyebrow: "Overview",
+        title: "Make every token accountable.",
+        body: [
+          "TokenLens is an AI spend control plane: a proxy that logs chat completions, tags them to teams, and surfaces where flagship models are wasted on trivial prompts.",
+          "The twist is evidence — cheaper routing is gated by output-quality and hallucination-risk scores, not a flat “always use mini” policy.",
+        ],
+      },
+      {
+        id: "research",
+        label: "Research & Insights",
+        eyebrow: "Research & Insights",
+        title: "Cost without quality is a trap.",
+        body: [
+          "Teams either over-provision (gpt-4o for “hi”) or under-provision (budget models on multi-step proofs) because dashboards show dollars without decision quality.",
+          "A usable system needs complexity classification and post-hoc quality signals in the same loop as billing.",
+        ],
+        insight: {
+          title: "Key insights",
+          points: [
+            {
+              lead: "Attribute first:",
+              text: "Without team IDs, spend conversations stay political.",
+            },
+            {
+              lead: "Quality gates routing:",
+              text: "Downgrade only when hall-risk is low and complexity is simple.",
+            },
+            {
+              lead: "Mockable architecture:",
+              text: "Recruiters can run the full loop without API keys.",
+            },
+          ],
+        },
+      },
+      {
+        id: "solution",
+        label: "The Solution",
+        eyebrow: "The Solution",
+        title: "Proxy → classify → score → recommend.",
+        body: [
+          "Requests hit `/v1/chat/completions` or `/v1/messages`. TokenLens classifies the prompt, calls mock or live providers, scores the output, estimates cost, and attaches a keep/downgrade recommendation with savings.",
+          "The dashboard shows spend by team, complexity mix, quality vs hall-risk pulse, routing opportunities, and a live playground.",
+        ],
+      },
+      {
+        id: "execution",
+        label: "Execution",
+        eyebrow: "Execution",
+        title: "Runnable today.",
+        body: [
+          "Standalone app under `projects/token-lens` with seed traffic, tests, and a Polylane-inspired UI (sparse light canvas, lime accents — original implementation, not a brand clone).",
+        ],
+      },
+    ],
+    repoPath: "projects/token-lens",
+    demoPath: "/demos/token-lens",
+    port: 4600,
+    run: [
+      "cd projects/token-lens",
+      "npm install && npm run seed && npm run dev",
+      "# http://localhost:4600",
+    ],
+  },
+  {
     slug: "care-atlas",
     name: "CareAtlas",
     tagline: "Find care you can actually afford",
     short:
       "Matching underinsured patients to sliding-scale clinics with explainable scores and visit-prep checklists.",
     tags: ["fullstack"],
-    featured: true,
+    featured: false,
     stage: "pine",
     role: "Fullstack engineer",
     type: "Personal project",
@@ -135,7 +231,7 @@ export const projects: Project[] = [
     short:
       "Queueable provenance workers — archive, domain, agreement, urgency — with an explainable trust band.",
     tags: ["backend"],
-    featured: true,
+    featured: false,
     stage: "inkblue",
     role: "Backend engineer",
     type: "Personal project",
