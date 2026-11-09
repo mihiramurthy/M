@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ClaimTrail — Provenance pipeline</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header>
+      <p class="eyebrow">ClaimTrail</p>
+      <h1>Trace a claim before you amplify it</h1>
+      <p class="lede">
+        Queue archive, domain, agreement, and urgency workers — get an explainable
+        provenance score with a live event log.
+      </p>
+    </header>
+    <main>
+      <form id="job-form">
+        <label>
+          URL
+          <input name="url" placeholder="https://example-news.test/story/grid-outage" value="https://example-news.test/story/grid-outage" />
+        </label>
+        <label>
+          Claim text
+          <textarea name="claim" rows="3">BREAKING: the entire Eastern grid failed last night — share before it's deleted</textarea>
+        </label>
+        <button type="submit">Enqueue analysis</button>
+      </form>
+      <div class="layout">
+        <section id="report"></section>
+        <section id="events"></section>
+      </div>
+      <section id="metrics" class="metrics"></section>
+    </main>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

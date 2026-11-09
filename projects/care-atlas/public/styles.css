@@ -1,0 +1,136 @@
+:root {
+  --bg: #0f1c19;
+  --panel: #17302a;
+  --text: #e8f2ec;
+  --muted: #9bb5a8;
+  --accent: #3faf7f;
+  --warn: #e08a4f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top left, #1c3b32, var(--bg) 55%);
+  color: var(--text);
+  min-height: 100vh;
+  padding: 2rem clamp(1rem, 4vw, 3rem);
+}
+
+header {
+  max-width: 42rem;
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: var(--accent);
+}
+
+h1 {
+  font-family: "IBM Plex Serif", Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1.15;
+  margin: 0.4rem 0;
+}
+
+.lede {
+  color: var(--muted);
+  max-width: 36rem;
+}
+
+form {
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  background: var(--panel);
+  padding: 1.25rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+label.check {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.4rem;
+}
+
+input,
+select,
+button {
+  font: inherit;
+  padding: 0.55rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid #2f5348;
+  background: #0f1c19;
+  color: var(--text);
+}
+
+button {
+  background: var(--accent);
+  color: #042015;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: end;
+}
+
+.card {
+  background: var(--panel);
+  border-radius: 12px;
+  padding: 1rem 1.15rem;
+  margin-bottom: 0.75rem;
+}
+
+.card h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.score {
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.reasons {
+  margin: 0.6rem 0 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.prep-list {
+  list-style: none;
+  padding: 0;
+}
+
+.prep-list li {
+  padding: 0.55rem 0;
+  border-bottom: 1px solid #2a463d;
+}
+
+.req {
+  color: var(--warn);
+  font-size: 0.75rem;
+  margin-left: 0.4rem;
+}

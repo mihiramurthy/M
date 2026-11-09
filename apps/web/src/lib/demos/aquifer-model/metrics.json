@@ -1,0 +1,38 @@
+{
+  "n_train": 1800,
+  "n_test": 600,
+  "positive_rate_train": 0.4738888888888889,
+  "positive_rate_test": 0.475,
+  "accuracy": 0.72,
+  "roc_auc": 0.771127819548872,
+  "brier": 0.19363710543935192,
+  "classification_report": {
+    "low_risk": {
+      "precision": 0.7194029850746269,
+      "recall": 0.765079365079365,
+      "f1-score": 0.7415384615384616,
+      "support": 315.0
+    },
+    "elevated_risk": {
+      "precision": 0.720754716981132,
+      "recall": 0.6701754385964912,
+      "f1-score": 0.6945454545454546,
+      "support": 285.0
+    },
+    "accuracy": 0.72,
+    "macro avg": {
+      "precision": 0.7200788510278795,
+      "recall": 0.7176274018379281,
+      "f1-score": 0.7180419580419581,
+      "support": 600.0
+    },
+    "weighted avg": {
+      "precision": 0.7200450577302168,
+      "recall": 0.72,
+      "f1-score": 0.7192167832167833,
+      "support": 600.0
+    }
+  },
+  "threshold": 0.5,
+  "notes": "Synthetic but physically motivated features for demo reproducibility. Not a regulatory model."
+}

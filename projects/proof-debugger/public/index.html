@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Proof Debugger — CMSC250</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="brand">
+        <span class="glyph">⊢</span>
+        <div>
+          <strong>Proof Debugger</strong>
+          <p>OCaml natural-deduction kernel · CMSC250</p>
+        </div>
+      </div>
+      <div class="tabs">
+        <button type="button" class="tab active" data-tab="student">Student</button>
+        <button type="button" class="tab" data-tab="ta">TA dashboard</button>
+      </div>
+      <span id="engine-pill" class="pill">engine…</span>
+    </header>
+
+    <main>
+      <section id="panel-student" class="panel">
+        <div class="hero">
+          <h1>Find the first broken inference.</h1>
+          <p>
+            Paste a stepwise proof. The <em>OCaml</em> checker — not an LLM — validates each
+            rule application and stops at the first mistake with a precise explanation.
+          </p>
+        </div>
+
+        <div class="grid">
+          <div>
+            <div class="toolbar">
+              <button type="button" id="load-valid" class="ghost">Load valid MP</button>
+              <button type="button" id="load-invalid" class="ghost">Load broken MP</button>
+              <button type="button" id="check-btn" class="primary">Check with OCaml</button>
+            </div>
+            <textarea id="proof" rows="16" spellcheck="false"></textarea>
+            <details class="hint">
+              <summary>DSL cheat sheet</summary>
+              <pre>goal: Q
+P1: P           [Premise]
+P2: P -> Q      [Premise]
+S3: Q           [MP P1 P2]
+
+# Also: AndIntro, AndElimL/R, MT, ImpIntro … {discharge A1}, Contra, Dne</pre>
+            </details>
+          </div>
+          <div>
+            <div id="result" class="result empty">Run a check to see the kernel verdict.</div>
+            <div class="informal box">
+              <h3>Optional: informal → formal</h3>
+              <p class="muted">Draft only — never used as the verifier.</p>
+              <textarea id="informal" rows="3" placeholder="Given P and P implies Q, conclude Q by modus ponens…"></textarea>
+              <button type="button" id="sketch-btn" class="ghost">Sketch formal steps</button>
+            </div>
+            <form id="submit-form" class="box">
+              <h3>Submit for TA clustering</h3>
+              <div class="row">
+                <input name="studentId" placeholder="student id" value="student1" />
+                <input name="exercise" placeholder="exercise" value="hw3-mp" />
+              </div>
+              <button type="submit" class="primary">Submit attempt</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section id="panel-ta" class="panel hidden">
+        <div class="hero">
+          <h1>Mistake pattern clusters</h1>
+          <p>Aggregate invalid submissions by structural pattern for office hours targeting.</p>
+        </div>
+        <div id="ta-summary" class="metrics"></div>
+        <div id="ta-clusters" class="clusters"></div>
+        <h3 class="subhead">Recent submissions</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>When</th>
+                <th>Student</th>
+                <th>Exercise</th>
+                <th>Result</th>
+                <th>Pattern</th>
+              </tr>
+            </thead>
+            <tbody id="ta-recent"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

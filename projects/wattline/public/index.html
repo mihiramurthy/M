@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wattline — Grid carbon planner</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header>
+      <p class="eyebrow">Wattline</p>
+      <h1>Run loads when the grid is clean</h1>
+      <p class="lede">
+        Explore 48-hour carbon intensity, then auto-schedule EV charging and
+        appliances against the lowest-emission windows.
+      </p>
+    </header>
+    <div class="controls">
+      <label>
+        Region
+        <select id="region">
+          <option value="midatlantic">Mid-Atlantic</option>
+          <option value="pacific">Pacific Coast</option>
+          <option value="plains">Central Plains</option>
+        </select>
+      </label>
+      <button id="plan-btn" type="button">Optimize flexible loads</button>
+    </div>
+    <section class="panel">
+      <canvas id="chart" width="960" height="280" aria-label="Intensity chart"></canvas>
+      <p id="avg" class="meta"></p>
+    </section>
+    <section id="results" class="panel"></section>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

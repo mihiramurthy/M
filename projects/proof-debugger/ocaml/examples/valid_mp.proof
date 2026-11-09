@@ -1,0 +1,5 @@
+# Valid modus ponens
+goal: Q
+P1: P  [Premise]
+P2: P -> Q  [Premise]
+S3: Q  [MP P1 P2]

@@ -1,0 +1,3 @@
+(library
+ (name proof_lib)
+ (libraries str unix))

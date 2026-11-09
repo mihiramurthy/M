@@ -1,0 +1,132 @@
+{
+  "sites": [
+    {
+      "id": "site-01",
+      "name": "Paint Branch Aquifer",
+      "county": "Prince George's",
+      "lat": 39.01,
+      "lon": -76.92,
+      "features": {
+        "nitrate_mg_l": 11.626644165516284,
+        "ph": 7.243201589925874,
+        "turbidity_ntu": 9.458529294610907,
+        "ag_proximity_km": 11.671799191207313,
+        "industry_proximity_km": 11.183785612853491,
+        "well_depth_m": 44.960442877885406,
+        "rainfall_30d_mm": 60.15014120167848
+      }
+    },
+    {
+      "id": "site-02",
+      "name": "Anacostia Alluvial",
+      "county": "Prince George's",
+      "lat": 38.9,
+      "lon": -76.94,
+      "features": {
+        "nitrate_mg_l": 12.644740518226829,
+        "ph": 7.028551756211986,
+        "turbidity_ntu": 11.17601514034015,
+        "ag_proximity_km": 11.17922147262006,
+        "industry_proximity_km": 4.652171290435666,
+        "well_depth_m": 29.94742364132445,
+        "rainfall_30d_mm": 74.7511511454456
+      }
+    },
+    {
+      "id": "site-03",
+      "name": "Patuxent Valley",
+      "county": "Anne Arundel",
+      "lat": 38.85,
+      "lon": -76.7,
+      "features": {
+        "nitrate_mg_l": 6.675706380385508,
+        "ph": 6.77003288874295,
+        "turbidity_ntu": 16.8840195940695,
+        "ag_proximity_km": 4.6590337468734635,
+        "industry_proximity_km": 14.011290995758408,
+        "well_depth_m": 14.352899942599937,
+        "rainfall_30d_mm": 61.8117834238385
+      }
+    },
+    {
+      "id": "site-04",
+      "name": "Monocacy Bench",
+      "county": "Frederick",
+      "lat": 39.4,
+      "lon": -77.4,
+      "features": {
+        "nitrate_mg_l": 15.754414079817623,
+        "ph": 6.99495576587489,
+        "turbidity_ntu": 16.0725130837941,
+        "ag_proximity_km": 5.334180372479527,
+        "industry_proximity_km": 11.337008382510083,
+        "well_depth_m": 45.952023499226435,
+        "rainfall_30d_mm": 103.87844419624035
+      }
+    },
+    {
+      "id": "site-05",
+      "name": "Eastern Shore Sand",
+      "county": "Talbot",
+      "lat": 38.78,
+      "lon": -76.07,
+      "features": {
+        "nitrate_mg_l": 14.769398757999637,
+        "ph": 7.124820359090709,
+        "turbidity_ntu": 3.8893956892229853,
+        "ag_proximity_km": 1.0138151100914292,
+        "industry_proximity_km": 4.761208747542535,
+        "well_depth_m": 17.521184566930984,
+        "rainfall_30d_mm": 35.838111326263615
+      }
+    },
+    {
+      "id": "site-06",
+      "name": "Industrial Corridor Wellfield",
+      "county": "Baltimore",
+      "lat": 39.25,
+      "lon": -76.55,
+      "features": {
+        "nitrate_mg_l": 23.62963829135365,
+        "ph": 7.303535974593593,
+        "turbidity_ntu": 6.506394221345756,
+        "ag_proximity_km": 0.7299324078572923,
+        "industry_proximity_km": 1.5852028807680354,
+        "well_depth_m": 31.24672065176242,
+        "rainfall_30d_mm": 53.07977833189172
+      }
+    },
+    {
+      "id": "site-07",
+      "name": "Ag Belt Nested Wells",
+      "county": "Cecil",
+      "lat": 39.55,
+      "lon": -75.95,
+      "features": {
+        "nitrate_mg_l": 24.533682529986013,
+        "ph": 6.614940651022323,
+        "turbidity_ntu": 16.444360548315025,
+        "ag_proximity_km": 0.551334280076378,
+        "industry_proximity_km": 0.26826677903296353,
+        "well_depth_m": 50.99773158282395,
+        "rainfall_30d_mm": 127.77118069170952
+      }
+    },
+    {
+      "id": "site-08",
+      "name": "Coastal Plain Deep",
+      "county": "Calvert",
+      "lat": 38.35,
+      "lon": -76.5,
+      "features": {
+        "nitrate_mg_l": 11.184475236494151,
+        "ph": 7.969766446695653,
+        "turbidity_ntu": 3.029641671692831,
+        "ag_proximity_km": 9.427746336679903,
+        "industry_proximity_km": 11.899976120702174,
+        "well_depth_m": 52.929627797405765,
+        "rainfall_30d_mm": 50.534662344134645
+      }
+    }
+  ]
+}

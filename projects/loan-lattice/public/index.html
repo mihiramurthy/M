@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LoanLattice — Student loan strategy lab</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header>
+      <p class="eyebrow">LoanLattice</p>
+      <h1>Compare repayment paths before you pick one</h1>
+      <p class="lede">
+        Standard vs IDR vs forbearance-trap — total paid, months, and the quiet
+        cost of capitalizing interest.
+      </p>
+    </header>
+    <form id="sim-form" class="panel grid">
+      <label>Principal ($)<input name="principal" type="number" value="40000" /></label>
+      <label>Interest rate<input name="annualRate" type="number" step="0.001" value="0.055" /></label>
+      <label>AGI ($)<input name="agi" type="number" value="48000" /></label>
+      <label>Family size<input name="familySize" type="number" value="1" min="1" /></label>
+      <label>Forbearance months<input name="pauseMonths" type="number" value="12" min="1" /></label>
+      <button type="submit">Simulate strategies</button>
+    </form>
+    <section id="insight" class="panel"></section>
+    <section id="scenarios" class="scenarios"></section>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

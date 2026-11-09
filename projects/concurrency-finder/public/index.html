@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Concurrency Finder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="brand">
+        <span class="glyph">∥</span>
+        <div>
+          <strong>Concurrency Finder</strong>
+          <p>Deterministic C scheduler · replay · shrink</p>
+        </div>
+      </div>
+      <span id="engine-pill" class="pill">engine…</span>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1>Find the interleaving. Replay the seed. Shrink the proof.</h1>
+        <p>
+          A controlled scheduler explores thread schedules for classic C races,
+          replays failures from a seed, and delta-debugs them down to a minimal
+          sequence — then benchmarks that against random stress testing.
+        </p>
+      </section>
+
+      <section class="grid">
+        <div class="panel">
+          <h2>Run</h2>
+          <div class="row">
+            <label>
+              Example
+              <select id="example">
+                <option value="bank_race">bank_race (check-then-act)</option>
+                <option value="lost_update">lost_update (load/incr/store)</option>
+              </select>
+            </label>
+            <label>
+              Seed
+              <input id="seed" type="number" value="16" />
+            </label>
+          </div>
+          <div class="row actions">
+            <button id="run-btn" class="primary" type="button">Run + shrink</button>
+            <button id="explore-btn" class="ghost" type="button">Explore mode</button>
+            <button id="bench-btn" class="ghost" type="button">Benchmark vs random</button>
+          </div>
+          <pre id="schedule" class="schedule">Schedule will appear here.</pre>
+        </div>
+
+        <div class="panel">
+          <h2>Result</h2>
+          <div id="result" class="result empty">Pick a seed and run the C engine.</div>
+          <div id="bench" class="bench hidden"></div>
+        </div>
+      </section>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>

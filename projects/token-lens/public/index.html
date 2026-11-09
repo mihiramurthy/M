@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TokenLens — AI spend intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="bg-grid" aria-hidden="true"></div>
+    <header class="topbar">
+      <div class="brand">
+        <span class="mark"></span>
+        <strong>TokenLens</strong>
+      </div>
+      <nav>
+        <a href="#overview">Overview</a>
+        <a href="#routing">Routing</a>
+        <a href="#playground">Playground</a>
+        <a href="#requests">Requests</a>
+      </nav>
+      <div class="top-actions">
+        <span id="mode-pill" class="pill">mock</span>
+        <button id="refresh-btn" type="button" class="btn-ghost">Refresh</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">AI spend intelligence</p>
+        <h1>
+          See every token.<br />
+          <span class="accent">Route with evidence.</span>
+        </h1>
+        <p class="lede">
+          Proxy OpenAI/Anthropic-style calls, attribute cost to teams, score output
+          quality, and downgrade models only when hallucination risk says you can.
+        </p>
+      </section>
+
+      <section id="overview" class="metrics" aria-label="Overview metrics"></section>
+
+      <section class="panels">
+        <article class="panel">
+          <div class="panel-head">
+            <h2>Spend by team</h2>
+            <span class="muted">attribution</span>
+          </div>
+          <div id="team-bars" class="bars"></div>
+        </article>
+        <article class="panel">
+          <div class="panel-head">
+            <h2>Complexity mix</h2>
+            <span class="muted">classifier</span>
+          </div>
+          <div id="complexity-bars" class="bars"></div>
+        </article>
+        <article class="panel">
+          <div class="panel-head">
+            <h2>Quality pulse</h2>
+            <span class="muted">avg scores</span>
+          </div>
+          <canvas id="quality-chart" width="640" height="180"></canvas>
+        </article>
+      </section>
+
+      <section id="routing" class="panel wide">
+        <div class="panel-head">
+          <h2>Evidence-based routing</h2>
+          <span class="muted">waste → cheaper model</span>
+        </div>
+        <div id="routing-summary" class="routing-summary"></div>
+        <div id="routing-table"></div>
+      </section>
+
+      <section id="playground" class="panel wide">
+        <div class="panel-head">
+          <h2>Proxy playground</h2>
+          <span class="muted">POST /v1/chat/completions</span>
+        </div>
+        <form id="play-form" class="play">
+          <label>
+            Team
+            <select name="teamId">
+              <option value="platform">platform</option>
+              <option value="growth">growth</option>
+              <option value="research">research</option>
+              <option value="support">support</option>
+            </select>
+          </label>
+          <label>
+            Model
+            <select name="model">
+              <option value="gpt-4o">gpt-4o</option>
+              <option value="gpt-4o-mini">gpt-4o-mini</option>
+              <option value="gpt-3.5-turbo">gpt-3.5-turbo</option>
+              <option value="claude-3-5-sonnet">claude-3-5-sonnet</option>
+              <option value="claude-3-5-haiku">claude-3-5-haiku</option>
+            </select>
+          </label>
+          <label class="full">
+            Prompt
+            <textarea name="prompt" rows="3">What is the capital of France?</textarea>
+          </label>
+          <button type="submit" class="btn-primary">Send through proxy</button>
+        </form>
+        <pre id="play-out" class="terminal"></pre>
+      </section>
+
+      <section id="requests" class="panel wide">
+        <div class="panel-head">
+          <h2>Request log</h2>
+          <span class="muted">latest</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Team</th>
+                <th>Model</th>
+                <th>Complexity</th>
+                <th>Quality</th>
+                <th>Hall. risk</th>
+                <th>Cost</th>
+                <th>Route</th>
+              </tr>
+            </thead>
+            <tbody id="request-rows"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <span>TokenLens · mock providers by default · optional OPENAI_API_KEY / ANTHROPIC_API_KEY</span>
+    </footer>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
