@@ -1,6 +1,9 @@
 {
   "name": "mihira-murthy-portfolio",
   "private": true,
+  "engines": {
+    "node": ">=20"
+  },
   "workspaces": [
     "apps/*",
     "projects/*"
