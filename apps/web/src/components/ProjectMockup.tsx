@@ -172,7 +172,32 @@ function ProofDebuggerUI() {
   );
 }
 
+function ConcurrencyFinderUI() {
+  return (
+    <div className="flex h-full flex-col gap-2 p-3 text-[9px]">
+      <div className="flex items-center justify-between">
+        <span className="font-semibold text-ink">∥ Concurrency Finder</span>
+        <span className="rounded-full bg-sky-100 px-1.5 text-[8px] text-sky-800">c-dcf</span>
+      </div>
+      <div className="rounded-md bg-[#0f1a16] p-2 font-mono text-[8px] text-[#b7d4c4] shadow-sm">
+        A → B → A → B
+        <br />
+        seed=16
+      </div>
+      <div className="rounded-md bg-[#fff6f5] p-2 text-[8px] text-red-800 shadow-sm">
+        ✗ balance=-50
+        <br />
+        check-then-act race
+      </div>
+      <div className="rounded-md bg-white p-2 text-[8px] shadow-sm">
+        explore 100/100 · random 57/100
+      </div>
+    </div>
+  );
+}
+
 const ui: Record<string, React.ReactNode> = {
+  "concurrency-finder": <ConcurrencyFinderUI />,
   "proof-debugger": <ProofDebuggerUI />,
   "token-lens": <TokenLensUI />,
   "care-atlas": <CareAtlasUI />,
@@ -213,7 +238,8 @@ export function ProjectShowcaseCard({
         {project.slug === "wattline" ||
         project.slug === "aquifer-net" ||
         project.slug === "token-lens" ||
-        project.slug === "proof-debugger" ? (
+        project.slug === "proof-debugger" ||
+        project.slug === "concurrency-finder" ? (
           <Laptop>{ui[project.slug]}</Laptop>
         ) : (
           <>

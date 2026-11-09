@@ -16,6 +16,7 @@
     "demo:wattline": "npm run dev -w @mihira/wattline",
     "demo:loan-lattice": "npm run dev -w @mihira/loan-lattice",
     "demo:token-lens": "npm run dev -w @mihira/token-lens",
-    "demo:proof-debugger": "npm run dev -w @mihira/proof-debugger"
+    "demo:proof-debugger": "npm run dev -w @mihira/proof-debugger",
+    "demo:concurrency-finder": "npm run dev -w @mihira/concurrency-finder"
   }
 }

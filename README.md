@@ -21,6 +21,7 @@ npm run dev
 |---------|--------|------------|-----------|
 | **TokenLens** | AI spend intelligence + quality-gated routing | `:4600` | `/demos/token-lens` |
 | **Proof Debugger** | CMSC250 ND checker (OCaml kernel) | `:4700` | `/demos/proof-debugger` |
+| **Concurrency Finder** | Deterministic C race finder (replay + shrink) | `:4800` | `/demos/concurrency-finder` |
 
 ## Earlier lab demos (still in repo)
 

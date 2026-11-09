@@ -34,6 +34,98 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "concurrency-finder",
+    name: "Concurrency Finder",
+    tagline: "Deterministic C scheduler that finds, replays, and shrinks races",
+    short:
+      "Controlled thread scheduling with seed replay and delta-debug shrinking — then clear numbers against random stress testing.",
+    tags: ["backend"],
+    featured: true,
+    stage: "slate",
+    role: "Systems / concurrency engineer",
+    type: "Personal project",
+    tools: ["C11", "make", "Node.js", "Express", "schedule shrinking"],
+    problem:
+      "Heisenbugs die under the debugger. Random stress testing burns CPU without a reproducible interleaving you can put in a bug report.",
+    approach:
+      "Model classic races as explicit-step threads under a seed-driven scheduler. Explore or sample schedules, replay failures from a seed, shrink to a minimal sequence, and benchmark hit-rate vs random stress.",
+    architecture: [
+      "C controlled scheduler (seed RNG · explore · replay)",
+      "Example races: bank check-then-act, lost update",
+      "Delta-debug schedule shrinker",
+      "Node UI + JSON CLI for benches",
+    ],
+    tech: ["C11", "make", "Node.js", "Express"],
+    highlights: [
+      "Deterministic replay from seed — trading-systems / OS signal",
+      "Shrink failing schedules to minimal sequences",
+      "Benchmarks: explore finds bank_race on trial 1 vs random ~trial 3",
+    ],
+    sections: [
+      {
+        id: "overview",
+        label: "Overview",
+        eyebrow: "Overview",
+        title: "Own the interleaving.",
+        body: [
+          "Concurrency Finder treats thread steps as a schedule the harness controls. When a race fires, you get a seed and a sequence — not a shrug.",
+        ],
+      },
+      {
+        id: "research",
+        label: "Research & Insights",
+        eyebrow: "Research & Insights",
+        title: "Random stress is a weak baseline.",
+        body: [
+          "Stress testing eventually trips some bugs, but without replay you cannot confirm a fix. Controlled exploration raises hit rate and shrink produces the artifact reviewers want.",
+        ],
+        insight: {
+          title: "Key insights",
+          points: [
+            {
+              lead: "Seed ⇒ replay:",
+              text: "Same seed, same schedule, same bug.",
+            },
+            {
+              lead: "Shrink the proof:",
+              text: "Delta-debug the schedule down to what still fails.",
+            },
+            {
+              lead: "Publish the numbers:",
+              text: "Explore vs random on the same trial budget.",
+            },
+          ],
+        },
+      },
+      {
+        id: "solution",
+        label: "The Solution",
+        eyebrow: "The Solution",
+        title: "Schedule → bug → minimal sequence.",
+        body: [
+          "`bank_race` withdraws 75 twice from 100 without locking the check/act window. `lost_update` does non-atomic load/incr/store. The CLI emits JSON schedules; the UI runs benches side by side.",
+        ],
+      },
+      {
+        id: "execution",
+        label: "Execution",
+        eyebrow: "Execution",
+        title: "C core, Node shell.",
+        body: [
+          "`make -C c` builds `dcf`. Express on :4800 wraps run/replay/bench. The portfolio embeds a JS mirror for Vercel, labeled non-authoritative.",
+        ],
+      },
+    ],
+    repoPath: "projects/concurrency-finder",
+    demoPath: "/demos/concurrency-finder",
+    port: 4800,
+    run: [
+      "cd projects/concurrency-finder",
+      "npm install && npm run build:c && npm run dev",
+      "# http://localhost:4800",
+    ],
+  },
+  {
     slug: "proof-debugger",
     name: "Proof Debugger",
     tagline: "CMSC250 natural-deduction checker with an OCaml kernel",

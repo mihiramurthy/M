@@ -1,0 +1,17 @@
+{
+  "name": "@mihira/concurrency-finder",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:c": "make -C c",
+    "dev": "npm run build:c && node --watch server/index.js",
+    "start": "npm run build:c && node server/index.js",
+    "test": "npm run build:c && node --test server/*.test.js",
+    "bench": "npm run build:c && ./c/dcf bench --example bank_race --trials 200 --seed 1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
+}
