@@ -1,134 +1,93 @@
 # Deploy the portfolio on Vercel (Hobby / free)
 
-**Goal:** ship **https://github.com/mihiramurthy/M** as a free Vercel site now. Custom domain later.  
-**Secrets:** none required for the public portfolio or embedded demos.
+**Goal:** ship **https://github.com/mihiramurthy/M** on Vercel Hobby. Custom domain later.  
+**Secrets:** none.
 
-This repo is an **npm workspaces monorepo**. The Next.js site lives in `apps/web`. Root `vercel.json` already points Vercel at the right install/build commands — prefer deploying from the **repo root**.
+This is an **npm workspaces monorepo**. The Next.js app is **`apps/web`**.  
+Vercel must use **Root Directory = `apps/web`** so it finds `.next` after `next build`. Deploying with Root = `./` leaves `.next` under `apps/web/` while Vercel looks at the repo root → **`NEXT_OUTPUT_DIR_MISSING`**.
 
-| Setting | Value |
-|---------|--------|
-| Framework | Next.js |
-| Root Directory | `.` (repository root) — leave blank / `/` |
-| Node.js version | **20.x** (Project Settings → General → Node.js Version) |
-| Install Command | `npm install` |
-| Build Command | `npm run build -w @mihira/web` |
-| Output | Next.js default (do **not** set a static Output Directory) |
-| Environment variables | **None** |
+## Canonical settings (copy these)
 
-`vercel.json` at the repo root:
+| Vercel field | Value |
+|--------------|--------|
+| Framework Preset | **Next.js** |
+| **Root Directory** | **`apps/web`** (Edit → select that folder) |
+| Node.js Version | **20.x** (Settings → General) |
+| Install Command | *(default)* — leave override **off**. Vercel installs workspaces from the monorepo root when Root Directory is a workspace package. |
+| Build Command | *(default)* `npm run build` / Next — leave override **off** |
+| **Output Directory** | **Empty / override OFF** — never set `.next`, `./`, or `apps/web/.next` |
+| Environment Variables | **None** |
+
+`apps/web/vercel.json`:
 
 ```json
-{
-  "framework": "nextjs",
-  "installCommand": "npm install",
-  "buildCommand": "npm run build -w @mihira/web"
-}
+{ "framework": "nextjs" }
 ```
 
----
-
-## A. Get the code onto the branch Vercel will build
-
-PR **#1** is open: [Portfolio site — designer-level polish + original demos](https://github.com/mihiramurthy/M/pull/1)  
-Head branch: `cursor/portfolio-original-demos-52db` → base: `main`
-
-**This agent cannot merge for you** without your GitHub approval. Pick one path:
-
-### Path 1 — Merge PR #1 into `main` (recommended for “production”)
-
-1. Open https://github.com/mihiramurthy/M/pull/1 while signed in as a repo admin/collaborator.
-2. Review the Files changed tab if you want.
-3. Click **Merge pull request** (green button near the bottom of the Conversation tab).
-4. Confirm with **Confirm merge**.
-5. Optional: **Delete branch** after merge.
-6. In Vercel (below), Production Branch = `main`.
-
-### Path 2 — Deploy the PR branch first (no merge yet)
-
-1. Skip merging.
-2. In Vercel project settings, set Production Branch to `cursor/portfolio-original-demos-52db`  
-   **or** open the Deployment from the Git integration for that branch / the PR preview.
-3. Merge PR #1 later when ready; then switch Production Branch back to `main`.
+Do **not** set `outputDirectory` in `vercel.json` for this Next app.
 
 ---
 
-## B. Create the Vercel Hobby project (click path)
+## Fix an existing failed project (`m` on Hobby)
 
-1. Go to https://vercel.com/signup (or https://vercel.com/login).
-2. Choose **Continue with GitHub** and authorize the **mihiramurthy** account if prompted.
-3. Confirm you’re on the **Hobby** (free) plan — new personal accounts default here.
-4. Dashboard → **Add New…** → **Project**.
-5. Under **Import Git Repository**, find **`mihiramurthy/M`**.
-   - If missing: **Adjust GitHub App Permissions** / **Configure** → grant access to that repo → refresh.
-6. Click **Import** next to `M`.
+If deploy failed with **`NEXT_OUTPUT_DIR_MISSING`**:
 
-### Configure (before Deploy)
+1. Open the project on https://vercel.com → project **`m`**.
+2. **Settings** → **General** → **Root Directory** → **Edit** → set to **`apps/web`** → **Save**.
+3. **Settings** → **Build & Development Settings**:
+   - **Output Directory** → turn **Override OFF** (or clear the value so it is empty).  
+     Wrong values that break Next: `.next`, `./`, `apps/web/.next`, `dist`, `build`.
+   - **Install Command** → Override **OFF** (recommended)  
+     or Override ON with: `cd ../.. && npm install`
+   - **Build Command** → Override **OFF** (recommended)  
+     or Override ON with: `npm run build`
+   - **Framework Preset** → **Next.js**
+4. **Settings** → **General** → **Node.js Version** → **20.x** → Save.
+5. **Deployments** → open the failed deployment → **Redeploy**  
+   (or **Deployments** → **Create Deployment** → branch **`main`**).  
+   Check **Use existing Build Cache** → prefer **unchecked** once after the settings change.
 
-7. **Project Name** — e.g. `mihira-murthy` (becomes `*.vercel.app`).
-8. **Framework Preset** — **Next.js**.
-9. **Root Directory** — click **Edit** → leave as **repository root** (`.` / empty).  
-   Do **not** set `apps/web` unless you follow the alternate note below.
-10. **Build and Output Settings** → open overrides if needed:
-    - **Install Command:** `npm install`
-    - **Build Command:** `npm run build -w @mihira/web`
-    - **Output Directory:** leave **empty** (Next.js, not static export)
-11. **Environment Variables** — leave empty (no secrets).
-12. Click **Deploy**. Wait for the build to go green.
-13. Open the `*.vercel.app` URL → smoke-check:
-    - `/`
-    - Projects / Past work tabs
-    - `/demos/token-lens`, `/demos/proof-debugger`, `/demos/concurrency-finder`
-    - `/Mihira_Murthy_Resume.pdf`
-
-### Node.js version (do this once after first deploy if needed)
-
-14. Project → **Settings** → **General** → **Node.js Version** → **20.x** → Save.  
-15. **Deployments** → ⋮ on latest → **Redeploy** if the first build used an older Node.
+After a green deploy, smoke-test `/`, Past work, `/demos/*`, `/Mihira_Murthy_Resume.pdf`.
 
 ---
 
-## Alternate: Root Directory = `apps/web`
+## New project import (if starting fresh)
 
-Only if root + `vercel.json` misbehaves:
+1. https://vercel.com → **Add New…** → **Project** → import **`mihiramurthy/M`**.
+2. Before Deploy:
+   - **Root Directory** → **Edit** → **`apps/web`**
+   - Framework **Next.js**
+   - Do **not** fill Output Directory
+   - No env vars
+3. **Deploy**.
 
-| Setting | Value |
-|---------|--------|
-| Root Directory | `apps/web` |
-| Install Command | `cd ../.. && npm install` |
-| Build Command | `cd ../.. && npm run build -w @mihira/web` |
+Production branch should be **`main`** (PR #1 already merged).
 
-Workspaces install from the monorepo root; building only inside `apps/web` without the root install will fail.
+---
 
-**Preferred:** Root Directory = `.` + existing `vercel.json`.
+## Why not Root Directory = `./`?
+
+| Root Directory | Where `next build` writes | What Vercel expects |
+|----------------|---------------------------|---------------------|
+| `./` (repo root) + `npm run build -w @mihira/web` | `apps/web/.next` | `.next` at repo root → **missing** |
+| **`apps/web`** | `apps/web/.next` | `.next` in Root Directory → **OK** |
+
+A root `vercel.json` with `"outputDirectory": "apps/web/.next"` is **wrong** for Next.js (Vercel then treats the app like a static export and still errors). Prefer Root Directory = `apps/web`.
 
 ---
 
 ## Custom domain (later)
 
-1. Vercel project → **Settings** → **Domains** → **Add**.
-2. Enter the domain → follow DNS (usually `A` / `CNAME` to Vercel).
-3. Wait for SSL. No app code changes required.
+**Settings** → **Domains** → **Add** → follow DNS. No code changes.
 
 ---
 
-## Local check (optional)
+## Local check
 
 ```bash
 npm install
-npm run build          # same as Vercel: builds @mihira/web
-npm run start          # http://localhost:3000
+npm run build -w @mihira/web   # writes apps/web/.next
+npm run start -w @mihira/web
 ```
 
-Standalone demos under `projects/*` (TokenLens `:4600`, Proof Debugger `:4700`, Concurrency Finder `:4800`, etc.) are **local/dev** servers. The Vercel site serves the portfolio + **client-side / embedded** demos under `/demos/*` — still **no env secrets**.
-
----
-
-## Go-live checklist
-
-- [ ] Merge PR #1 **or** point Vercel at `cursor/portfolio-original-demos-52db`
-- [ ] Import `mihiramurthy/M` on Vercel Hobby
-- [ ] Root Directory = repo root; Node **20.x**
-- [ ] Install `npm install` · Build `npm run build -w @mihira/web` · no Output Directory
-- [ ] No environment variables
-- [ ] Smoke-test home, Past work, `/demos/*`, resume PDF
-- [ ] (Later) custom domain under Settings → Domains
+Standalone servers under `projects/*` are local only; Vercel serves the site + `/demos/*` with **no secrets**.
