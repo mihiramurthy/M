@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { featuredProjects } from "@/content/projects";
+import { pastWorkProjects } from "@/content/pastWork";
 import { ProjectShowcaseCard } from "@/components/ProjectMockup";
+import { PastWorkCard } from "@/components/PastWorkCard";
 
 export function ProjectBrowser() {
   const [tab, setTab] = useState<"projects" | "past">("projects");
@@ -39,21 +40,22 @@ export function ProjectBrowser() {
           ))}
         </div>
       ) : (
-        <div className="rounded-showcase border border-dashed border-black/15 bg-white px-6 py-14 text-center shadow-float">
-          <p className="section-eyebrow">Past work</p>
-          <h3 className="mt-3 text-2xl font-semibold tracking-tight">
-            Private / employer screenshots coming soon
-          </h3>
-          <p className="mx-auto mt-3 max-w-lg text-ink-muted">
-            This tab is reserved for internship and club case-study uploads. Until those
-            files land, shipped personal work lives under Projects.
-          </p>
-          <Link
-            href="/about"
-            className="mt-6 inline-flex rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-white"
-          >
-            See experience on About
-          </Link>
+        <div className="space-y-8">
+          <div className="max-w-2xl">
+            <p className="section-eyebrow">Past work</p>
+            <h3 className="mt-2 text-2xl font-semibold tracking-tight md:text-3xl">
+              Private & club screenshots
+            </h3>
+            <p className="mt-3 text-ink-muted">
+              Revolving case studies from internship and App Dev Club work. Each carousel is
+              screenshot-proof only — no source links. More batches can drop into{" "}
+              <code className="text-xs">public/past-work/&lt;slug&gt;/</code> and extend the
+              content file.
+            </p>
+          </div>
+          {pastWorkProjects.map((p) => (
+            <PastWorkCard key={p.slug} project={p} />
+          ))}
         </div>
       )}
     </section>

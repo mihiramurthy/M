@@ -52,14 +52,14 @@ export default function HomePage() {
 
       <section className="mx-auto max-w-6xl px-6 py-16 md:px-10">
         <div className="rounded-showcase border border-black/5 bg-white p-8 shadow-float md:p-10">
-          <p className="section-eyebrow">Internship case studies</p>
+          <p className="section-eyebrow">Internship & club artifacts</p>
           <h2 className="mt-3 text-2xl font-semibold tracking-tight md:text-3xl">
-            Slot reserved for upcoming writeups
+            Past work lives in the tab above
           </h2>
           <p className="mt-3 max-w-2xl text-ink-muted">
-            Detailed artifacts from internship work will land here once files are uploaded.
-            Until then, experience lives on the About page — demos above stay personal and
-            original.
+            Switch to <span className="font-medium text-ink">Past work</span> for Exiger,
+            Nokia-adjacent PoC screenshots, and App Dev Club portals — revolving carousels,
+            no source dumps. Original demos stay under Projects.
           </p>
         </div>
       </section>

@@ -22,12 +22,13 @@ export type RunResult = {
 /** Match C dcf_rng_next (xorshift64*). State held as BigInt. */
 function xorshift64(state: { s: bigint }) {
   let x = state.s;
-  if (x === 0n) x = 0x9e3779b97f4a7c15n;
-  x ^= x >> 12n;
-  x ^= x << 25n;
-  x ^= x >> 27n;
+  const zero = BigInt(0);
+  if (x === zero) x = BigInt("0x9e3779b97f4a7c15");
+  x ^= x >> BigInt(12);
+  x ^= x << BigInt(25);
+  x ^= x >> BigInt(27);
   state.s = x;
-  return (x * 0x2545f4914f6cdd1dn) & 0xffffffffffffffffn;
+  return (x * BigInt("0x2545f4914f6cdd1d")) & BigInt("0xffffffffffffffff");
 }
 
 function pick(
@@ -263,7 +264,7 @@ export function bench(example: string, trials = 100, baseSeed = 1) {
   };
 
   for (let i = 0; i < trials; i++) {
-    const seed = Number(BigInt(baseSeed) + BigInt(i) * 2654435761n);
+    const seed = Number(BigInt(baseSeed) + BigInt(i) * BigInt(2654435761));
     const r = runExample(example, seed || 1, "random");
     if (!r.ok) {
       random.bugsFound++;
