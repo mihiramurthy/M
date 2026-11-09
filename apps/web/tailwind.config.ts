@@ -5,56 +5,57 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        paper: {
+          DEFAULT: "#F5F4F1",
+          pure: "#FFFFFF",
+          soft: "#EEEEEA",
+        },
         ink: {
-          950: "#070B0A",
-          900: "#0C1412",
-          800: "#14201C",
-          700: "#1E2E28",
+          DEFAULT: "#141414",
+          soft: "#2A2A2A",
+          muted: "#8B8B8B",
+          faint: "#B5B5B5",
         },
-        mist: {
-          50: "#F3F7F4",
-          100: "#E4EDE6",
-          300: "#A8BDB0",
-          400: "#7A9586",
+        accent: {
+          DEFAULT: "#E87A3A",
+          soft: "#F3B48A",
+          blush: "#F0C9C2",
         },
-        signal: {
-          DEFAULT: "#3FAF7F",
-          bright: "#5FD49A",
-          dim: "#2A7A58",
-        },
-        ember: {
-          DEFAULT: "#E08A4F",
-          soft: "#F0B888",
+        stage: {
+          cocoa: "#3A2A22",
+          olive: "#2E3426",
+          slate: "#1F2A33",
+          pine: "#1C3330",
+          inkblue: "#1A2030",
         },
       },
       fontFamily: {
-        display: ["var(--font-display)", "Georgia", "serif"],
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
         mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
-      backgroundImage: {
-        "atlas-mesh":
-          "radial-gradient(ellipse 80% 60% at 15% 20%, rgba(63,175,127,0.18), transparent 55%), radial-gradient(ellipse 70% 50% at 85% 10%, rgba(224,138,79,0.12), transparent 50%), radial-gradient(ellipse 60% 40% at 60% 80%, rgba(63,175,127,0.08), transparent 45%)",
+      boxShadow: {
+        float: "0 10px 40px rgba(20,20,20,0.08)",
+        pill: "0 8px 30px rgba(20,20,20,0.12)",
+        card: "0 18px 50px rgba(20,20,20,0.1)",
+      },
+      borderRadius: {
+        showcase: "1.75rem",
       },
       keyframes: {
         "fade-up": {
-          "0%": { opacity: "0", transform: "translateY(18px)" },
+          "0%": { opacity: "0", transform: "translateY(16px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
-        "draw-line": {
-          "0%": { strokeDashoffset: "1000" },
-          "100%": { strokeDashoffset: "0" },
-        },
-        shimmer: {
-          "0%": { backgroundPosition: "200% 0" },
-          "100%": { backgroundPosition: "-200% 0" },
+        floaty: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-6px)" },
         },
       },
       animation: {
-        "fade-up": "fade-up 0.8s ease-out both",
-        "fade-up-delay": "fade-up 0.8s ease-out 0.15s both",
-        "fade-up-late": "fade-up 0.8s ease-out 0.3s both",
-        shimmer: "shimmer 8s linear infinite",
+        "fade-up": "fade-up 0.7s ease-out both",
+        "fade-up-delay": "fade-up 0.7s ease-out 0.12s both",
+        "fade-up-late": "fade-up 0.7s ease-out 0.24s both",
+        floaty: "floaty 5s ease-in-out infinite",
       },
     },
   },

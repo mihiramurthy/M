@@ -2,17 +2,43 @@ import { profile } from "@/content/experience";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-white/5 py-10 text-sm text-mist-400">
-      <div className="mx-auto flex max-w-6xl flex-col gap-2 px-5 md:flex-row md:items-center md:justify-between md:px-8">
-        <p>
-          © {new Date().getFullYear()} {profile.name}
-        </p>
-        <p className="font-mono text-xs">
-          Built as original demos · not employer IP ·{" "}
-          <a className="text-signal hover:underline" href="https://github.com/mihiramurthy/M">
-            github.com/mihiramurthy/M
+    <footer id="connect" className="border-t border-black/5 pb-28 pt-16">
+      <div className="mx-auto max-w-6xl px-6 md:px-10">
+        <h2 className="font-sans text-4xl font-semibold tracking-tight text-ink md:text-5xl">
+          Let&apos;s connect!
+        </h2>
+        <div className="mt-5 flex flex-wrap items-center gap-5 text-base text-ink-soft">
+          <a
+            href={profile.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            className="link-quiet font-medium"
+          >
+            LinkedIn
           </a>
-        </p>
+          <a
+            href={`mailto:${profile.email}`}
+            aria-label="Email"
+            className="link-quiet inline-flex items-center gap-2"
+          >
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.7">
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <path d="m4 7 8 6 8-6" />
+            </svg>
+            <span className="sr-only md:not-sr-only md:inline">{profile.email}</span>
+          </a>
+          <a href="/Mihira_Murthy_Resume.pdf" className="link-quiet font-medium">
+            Resume
+          </a>
+        </div>
+        <div className="mt-14 flex flex-col gap-2 text-sm text-ink-muted md:flex-row md:items-end md:justify-between">
+          <p>
+            Made with curiosity in College Park · Built with Next.js
+            <br />
+            Original demos — not employer IP.
+          </p>
+          <p>© {new Date().getFullYear()} {profile.name}</p>
+        </div>
       </div>
     </footer>
   );

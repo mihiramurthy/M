@@ -1,15 +1,31 @@
 export type ProjectTag = "fullstack" | "backend" | "ml" | "frontend";
 
+export type CaseSection = {
+  id: string;
+  label: string;
+  eyebrow?: string;
+  title: string;
+  body: string[];
+  insight?: { title: string; points: { lead: string; text: string }[] };
+};
+
 export type Project = {
   slug: string;
   name: string;
   tagline: string;
+  short: string;
   tags: ProjectTag[];
+  featured: boolean;
+  stage: "cocoa" | "olive" | "slate" | "pine" | "inkblue";
+  role: string;
+  type: string;
+  tools: string[];
   problem: string;
   approach: string;
   architecture: string[];
   tech: string[];
   highlights: string[];
+  sections: CaseSection[];
   repoPath: string;
   demoPath: string;
   port: number;
@@ -20,23 +36,88 @@ export const projects: Project[] = [
   {
     slug: "care-atlas",
     name: "CareAtlas",
-    tagline: "Access-to-care navigator for underinsured patients",
+    tagline: "Find care you can actually afford",
+    short:
+      "Matching underinsured patients to sliding-scale clinics with explainable scores and visit-prep checklists.",
     tags: ["fullstack"],
+    featured: true,
+    stage: "pine",
+    role: "Fullstack engineer",
+    type: "Personal project",
+    tools: ["Node.js", "Express", "JavaScript", "Next.js", "Tailwind"],
     problem:
-      "Finding a clinic that takes sliding-scale payments, speaks your language, and treats the right specialty still means calling ten numbers and hoping. Directory apps list providers; few model affordability, language, and specialty together — or tell you what documents charity-care intake actually needs.",
+      "Finding a clinic that takes sliding-scale payments, speaks your language, and treats the right specialty still means calling ten numbers and hoping.",
     approach:
-      "CareAtlas ranks clinics with an explainable scoring engine (distance, sliding scale, Medicaid, language overlap, specialty fit, wait, transit) and generates a visit-prep checklist so the appointment is not wasted. Seeded inventory around College Park / PG County demonstrates the product loop end-to-end.",
+      "CareAtlas ranks clinics with an explainable scoring engine and generates a visit-prep checklist so the appointment is not wasted.",
     architecture: [
-      "Express API over JSON clinic inventory",
-      "Deterministic match engine with auditable reason strings",
-      "Prep checklist generator keyed to eligibility profile",
-      "Static demo UI for recruiter-friendly local runs",
+      "Express API over clinic inventory",
+      "Deterministic match engine with auditable reasons",
+      "Prep checklist keyed to eligibility",
+      "Interactive demo embedded on this site",
     ],
     tech: ["Node.js", "Express", "JavaScript", "HTML/CSS"],
     highlights: [
-      "Explainable ranking — every point of score is human-readable",
-      "Contrast endpoint for sliding-scale vs boutique outcomes",
-      "Unit-tested match edge cases (radius, uninsured preference)",
+      "Explainable ranking — every score point is readable",
+      "Contrast endpoint for sliding-scale vs boutique",
+      "Unit-tested match edge cases",
+    ],
+    sections: [
+      {
+        id: "overview",
+        label: "Overview",
+        eyebrow: "Overview",
+        title: "Taking the guesswork out of affordable care.",
+        body: [
+          "Directory apps list providers. Few model affordability, language, and specialty together — or tell you what documents charity-care intake needs.",
+          "CareAtlas turns a short eligibility profile into a ranked shortlist with reasons you can audit, then a visit-prep checklist so the first appointment is usable.",
+        ],
+      },
+      {
+        id: "research",
+        label: "Research & Insights",
+        eyebrow: "Research & Insights",
+        title: "Access is a systems problem.",
+        body: [
+          "Interviews and desk research around FQHC / sliding-scale intake showed the same failure modes: patients optimize for proximity, then discover cash prices or language gaps too late.",
+          "Explainability mattered as much as accuracy — people needed to trust why a clinic ranked higher.",
+        ],
+        insight: {
+          title: "Key insights",
+          points: [
+            {
+              lead: "Affordability is invisible:",
+              text: "Most finders bury sliding-scale status behind phone trees.",
+            },
+            {
+              lead: "Language is a hard filter:",
+              text: "A “nearby” clinic that cannot interpret is not nearby.",
+            },
+            {
+              lead: "Prep prevents no-shows:",
+              text: "Charity-care visits fail when documents are missing.",
+            },
+          ],
+        },
+      },
+      {
+        id: "solution",
+        label: "The Solution",
+        eyebrow: "The Solution",
+        title: "An explainable matcher, not a black box.",
+        body: [
+          "Distance, sliding scale, Medicaid, language overlap, specialty fit, wait, and transit each contribute named points. Recruiters (and patients) can read the trail.",
+          "The prep generator adapts to uninsured / Medicaid / specialty so intake is not a surprise.",
+        ],
+      },
+      {
+        id: "execution",
+        label: "Execution",
+        eyebrow: "Execution",
+        title: "Runnable API + live demo.",
+        body: [
+          "Standalone Express app with seed data and tests, plus an embedded interactive demo on this site for recruiters who will not spin up five servers.",
+        ],
+      },
     ],
     repoPath: "projects/care-atlas",
     demoPath: "/demos/care-atlas",
@@ -50,23 +131,81 @@ export const projects: Project[] = [
   {
     slug: "claim-trail",
     name: "ClaimTrail",
-    tagline: "Provenance pipeline for claims before they go viral",
+    tagline: "Trace a claim before you amplify it",
+    short:
+      "Queueable provenance workers — archive, domain, agreement, urgency — with an explainable trust band.",
     tags: ["backend"],
+    featured: true,
+    stage: "inkblue",
+    role: "Backend engineer",
+    type: "Personal project",
+    tools: ["Node.js", "Express", "async workers", "nanoid"],
     problem:
-      "Misinformation outruns verification. Consumers get polarity badges without provenance; newsrooms need queueable, observable pipelines — not one-shot classifiers glued to a single API.",
+      "Misinformation outruns verification. Consumers get polarity badges without provenance.",
     approach:
-      "ClaimTrail ingests a URL and/or claim text, enqueues specialized workers (archive history, domain age, cross-source agreement, linguistic urgency), and emits an explainable trust band with a full event log and simple metrics. External services are mocked with deterministic fixtures so the architecture runs offline.",
+      "Ingest URL/claim → parallel workers → trust band + event log. External APIs mocked so architecture runs offline.",
     architecture: [
-      "Job queue abstraction with parallel workers",
-      "Archive / domain / agreement / urgency worker modules",
-      "Trust scorer with factor list + caution bands",
-      "Observability hooks: event stream + enqueue/complete/fail metrics",
+      "Job queue with parallel workers",
+      "Archive / domain / agreement / urgency modules",
+      "Trust scorer with factor list",
+      "Observability: events + metrics",
     ],
-    tech: ["Node.js", "Express", "async workers", "nanoid"],
+    tech: ["Node.js", "Express", "async workers"],
     highlights: [
-      "202 Accepted job flow with polling",
-      "Preset scenarios for viral vs established sources",
-      "Tests covering caution-band and high-confidence paths",
+      "202 Accepted job flow",
+      "Preset viral vs established scenarios",
+      "Caution-band and high-confidence tests",
+    ],
+    sections: [
+      {
+        id: "overview",
+        label: "Overview",
+        eyebrow: "Overview",
+        title: "Provenance before polarity.",
+        body: [
+          "Binary true/false badges collapse uncertainty. ClaimTrail shows the trail: archive thinness, domain youth, cross-source contradiction, linguistic pressure.",
+        ],
+      },
+      {
+        id: "research",
+        label: "Research & Insights",
+        eyebrow: "Research & Insights",
+        title: "Virality has fingerprints.",
+        body: [
+          "Young domains, sparse archives, and absolutist framing co-occur with low-trust amplification. Established wires with epistemic markers behave differently.",
+        ],
+        insight: {
+          title: "Key insights",
+          points: [
+            {
+              lead: "Queues beat one-shots:",
+              text: "Newsrooms need workers they can observe and retry.",
+            },
+            {
+              lead: "Factors > scores alone:",
+              text: "People calibrate trust when they see why.",
+            },
+          ],
+        },
+      },
+      {
+        id: "solution",
+        label: "The Solution",
+        eyebrow: "The Solution",
+        title: "A miniature verification pipeline.",
+        body: [
+          "Four workers run in parallel; a scorer maps fixtures into a band. Presets make recruiter demos instant.",
+        ],
+      },
+      {
+        id: "execution",
+        label: "Execution",
+        eyebrow: "Execution",
+        title: "Offline-first architecture.",
+        body: [
+          "Deterministic mocks stand in for Wayback/WHOIS/fact-check APIs so the design stays honest and runnable anywhere.",
+        ],
+      },
     ],
     repoPath: "projects/claim-trail",
     demoPath: "/demos/claim-trail",
@@ -76,23 +215,81 @@ export const projects: Project[] = [
   {
     slug: "aquifer-net",
     name: "AquiferNet",
-    tagline: "Groundwater contamination risk — train, evaluate, explore",
+    tagline: "Groundwater risk you can inspect",
+    short:
+      "Train a contamination risk model, ship offline metrics, explore what-if inference across monitoring sites.",
     tags: ["ml"],
+    featured: false,
+    stage: "slate",
+    role: "ML engineer",
+    type: "Personal project",
+    tools: ["Python", "scikit-learn", "NumPy", "Node.js"],
     problem:
-      "Private wells and rural aquifers rarely get the transparency of municipal dashboards. Communities need interpretable risk signals tied to nitrate, chemistry, land use, and well construction — not opaque vendor scores.",
+      "Private wells rarely get municipal-grade transparency. Communities need interpretable risk signals.",
     approach:
-      "AquiferNet synthesizes physically motivated training data, fits a class-weighted logistic regression with StandardScaler, exports portable model JSON, and ships offline metrics (accuracy, ROC-AUC, Brier). A Node inference layer mirrors the Python pipeline for what-if exploration across seeded Maryland monitoring sites.",
+      "Physically motivated synthetic data → class-weighted logistic regression → portable JSON model + JS inference with driver contributions.",
     architecture: [
-      "Python training script → model.json + metrics.json",
-      "Portable logistic inference in JavaScript",
-      "Site explorer with top feature drivers",
-      "Offline evaluation report for recruiter audit",
+      "Python training → model.json + metrics.json",
+      "Portable logistic inference in JS",
+      "Site explorer with top drivers",
+      "Offline eval report",
     ],
-    tech: ["Python", "scikit-learn", "NumPy", "Node.js", "Express"],
+    tech: ["Python", "scikit-learn", "NumPy", "Node.js"],
     highlights: [
-      "Train/eval split with ROC-AUC ~0.77 on held-out data",
+      "ROC-AUC ~0.77 on held-out data",
       "Contribution breakdown per prediction",
-      "Runnable without cloud GPUs — CPU sklearn only",
+      "CPU-only — no cloud GPU required",
+    ],
+    sections: [
+      {
+        id: "overview",
+        label: "Overview",
+        eyebrow: "Overview",
+        title: "Make aquifer risk legible.",
+        body: [
+          "AquiferNet connects nitrate, chemistry, land-use proximity, and well depth into a probability you can poke — with the model coefficients and eval metrics in the open.",
+        ],
+      },
+      {
+        id: "research",
+        label: "Research & Insights",
+        eyebrow: "Research & Insights",
+        title: "Opacity is the product failure.",
+        body: [
+          "Vendor scores without drivers do not help a county planner decide where to sample next. Contribution lists change the conversation.",
+        ],
+        insight: {
+          title: "Key insights",
+          points: [
+            {
+              lead: "Export the model:",
+              text: "Portable JSON lets the web demo mirror Python training.",
+            },
+            {
+              lead: "Brier + AUC together:",
+              text: "Calibration matters for risk communication.",
+            },
+          ],
+        },
+      },
+      {
+        id: "solution",
+        label: "The Solution",
+        eyebrow: "The Solution",
+        title: "Train → evaluate → explore.",
+        body: [
+          "A single training script writes artifacts the Node/Next inference layers consume. Sites load into a what-if predictor instantly.",
+        ],
+      },
+      {
+        id: "execution",
+        label: "Execution",
+        eyebrow: "Execution",
+        title: "Reproducible offline ML.",
+        body: [
+          "Model and metrics are committed so recruiters can run inference without retraining — and can retrain locally when they want.",
+        ],
+      },
     ],
     repoPath: "projects/aquifer-net",
     demoPath: "/demos/aquifer-net",
@@ -107,23 +304,81 @@ export const projects: Project[] = [
   {
     slug: "wattline",
     name: "Wattline",
-    tagline: "Grid carbon intensity explorer + demand-response planner",
+    tagline: "Run loads when the grid is clean",
+    short:
+      "48-hour carbon intensity explorer with a demand-response planner that places flexible loads into clean windows.",
     tags: ["frontend"],
+    featured: false,
+    stage: "olive",
+    role: "Frontend engineer",
+    type: "Personal project",
+    tools: ["JavaScript", "Canvas", "Express", "simulation"],
     problem:
-      "Electrification without timing literacy can increase emissions. Households still run EV chargers and appliances on convenience schedules while regional intensity swings with solar, wind, and evening peaks.",
+      "Electrification without timing literacy can increase emissions.",
     approach:
-      "Wattline simulates a 48-hour intensity curve from regional mix knobs, renders an interactive canvas chart, and places flexible loads into the lowest contiguous carbon windows — reporting kilograms CO₂e saved versus an evening-naive baseline.",
+      "Simulate regional intensity, visualize it, schedule EV/appliances into lowest contiguous windows vs evening-naive baseline.",
     architecture: [
-      "Regional intensity simulation engine",
-      "Contiguous-window load planner",
-      "Canvas visualization with placement overlays",
-      "Express API for forecast + plan",
+      "Regional intensity simulation",
+      "Contiguous-window planner",
+      "Canvas chart with overlays",
+      "Express forecast + plan API",
     ],
-    tech: ["JavaScript", "Canvas", "Express", "simulation"],
+    tech: ["JavaScript", "Canvas", "Express"],
     highlights: [
-      "Three regions with distinct renewable signatures",
-      "Measurable kg CO₂e savings vs naive schedule",
-      "Frontend-substance demo with real scheduling math",
+      "Three regional signatures",
+      "Measurable kg CO₂e savings",
+      "Frontend substance with real math",
+    ],
+    sections: [
+      {
+        id: "overview",
+        label: "Overview",
+        eyebrow: "Overview",
+        title: "Timing is a climate feature.",
+        body: [
+          "Wattline makes grid carbon tangible: see the curve, then auto-place flexible loads where intensity dips.",
+        ],
+      },
+      {
+        id: "research",
+        label: "Research & Insights",
+        eyebrow: "Research & Insights",
+        title: "Convenience schedules hide cost.",
+        body: [
+          "Evening peaks coincide with dirtier marginal generation in many regions. Shifting a few kWh is concrete and teachable.",
+        ],
+        insight: {
+          title: "Key insights",
+          points: [
+            {
+              lead: "Contiguous windows matter:",
+              text: "EV charging is not a single timestep optimization.",
+            },
+            {
+              lead: "Compare to naive:",
+              text: "Savings vs 6pm start make the win obvious.",
+            },
+          ],
+        },
+      },
+      {
+        id: "solution",
+        label: "The Solution",
+        eyebrow: "The Solution",
+        title: "Simulate → visualize → plan.",
+        body: [
+          "Regional knobs drive a 48h series; the planner searches lowest-average windows for each load duration.",
+        ],
+      },
+      {
+        id: "execution",
+        label: "Execution",
+        eyebrow: "Execution",
+        title: "Canvas-first interaction.",
+        body: [
+          "Standalone app and embedded demo share the same planning engine for consistent results.",
+        ],
+      },
     ],
     repoPath: "projects/wattline",
     demoPath: "/demos/wattline",
@@ -133,23 +388,81 @@ export const projects: Project[] = [
   {
     slug: "loan-lattice",
     name: "LoanLattice",
-    tagline: "Student loan strategy lab with forbearance-trap modeling",
+    tagline: "See the forbearance trap before you pause",
+    short:
+      "Side-by-side Standard vs IDR vs forbearance-then-standard — cash, months, and capitalization made visible.",
     tags: ["fullstack"],
+    featured: false,
+    stage: "cocoa",
+    role: "Fullstack engineer",
+    type: "Personal project",
+    tools: ["Node.js", "Express", "financial modeling"],
     problem:
-      "Federal repayment choice is cashflow, interest capitalization, and forgiveness timelines — yet servicer portals rarely surface clear counterfactuals. Forbearance can quietly balloon balances.",
+      "Servicer portals rarely surface clear counterfactuals. Forbearance can quietly balloon balances.",
     approach:
-      "LoanLattice runs Standard 10-year, PAYE-like IDR (10% discretionary), and a forbearance-then-standard path side by side, surfacing total paid, months, forgiven amount, and the capitalization penalty of pausing.",
+      "Run Standard 10-year, PAYE-like IDR, and forbearance capitalization side by side with insight deltas.",
     architecture: [
-      "Amortization + IDR engines in pure JS",
+      "Amortization + IDR engines",
       "Forbearance capitalization model",
-      "Scenario compare API + insight deltas",
-      "Interactive strategy lab UI",
+      "Scenario compare API",
+      "Strategy lab UI",
     ],
-    tech: ["Node.js", "Express", "financial modeling", "HTML/CSS"],
+    tech: ["Node.js", "Express", "financial modeling"],
     highlights: [
-      "Auditable math in server/finance.js",
-      "Explicit forbearance capitalization warning",
-      "Unit tests for payoff and penalty invariants",
+      "Auditable math in finance.js",
+      "Explicit capitalization warning",
+      "Penalty invariant tests",
+    ],
+    sections: [
+      {
+        id: "overview",
+        label: "Overview",
+        eyebrow: "Overview",
+        title: "Repayment is a decision under fog.",
+        body: [
+          "LoanLattice clears the fog with three honest scenarios and the dollar penalty of pausing.",
+        ],
+      },
+      {
+        id: "research",
+        label: "Research & Insights",
+        eyebrow: "Research & Insights",
+        title: "Pause now, pay later — literally.",
+        body: [
+          "Interest during forbearance capitalizes. That jump is the story most UIs bury under legalese.",
+        ],
+        insight: {
+          title: "Key insights",
+          points: [
+            {
+              lead: "Show the jump:",
+              text: "Balance-after-capitalization is the teaching moment.",
+            },
+            {
+              lead: "IDR is cashflow, not magic:",
+              text: "Low payments can mean negative amortization until forgiveness.",
+            },
+          ],
+        },
+      },
+      {
+        id: "solution",
+        label: "The Solution",
+        eyebrow: "The Solution",
+        title: "Three paths, one comparison.",
+        body: [
+          "Inputs for principal, rate, AGI, family size, and pause length drive Standard, IDR, and forbearance-trap outputs together.",
+        ],
+      },
+      {
+        id: "execution",
+        label: "Execution",
+        eyebrow: "Execution",
+        title: "Math you can unit test.",
+        body: [
+          "Pure functions for amortization and IDR keep the demo honest and recruiter-auditable.",
+        ],
+      },
     ],
     repoPath: "projects/loan-lattice",
     demoPath: "/demos/loan-lattice",
@@ -161,3 +474,6 @@ export const projects: Project[] = [
 export function getProject(slug: string) {
   return projects.find((p) => p.slug === slug);
 }
+
+export const featuredProjects = projects.filter((p) => p.featured);
+export const extraProjects = projects.filter((p) => !p.featured);
