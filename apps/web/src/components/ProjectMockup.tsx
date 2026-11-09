@@ -146,7 +146,34 @@ function TokenLensUI() {
   );
 }
 
+function ProofDebuggerUI() {
+  return (
+    <div className="flex h-full flex-col gap-2 p-3 text-[9px]">
+      <div className="flex items-center justify-between">
+        <span className="font-semibold text-ink">⊢ Proof Debugger</span>
+        <span className="rounded-full bg-amber-100 px-1.5 text-[8px] text-amber-800">ocaml</span>
+      </div>
+      <div className="rounded-md bg-white p-2 font-mono text-[8px] leading-relaxed shadow-sm">
+        P1: P [Premise]
+        <br />
+        P2: P→Q [Premise]
+        <br />
+        S3: P [MP P1 P2]
+      </div>
+      <div className="rounded-md bg-[#fff6f5] p-2 text-[8px] text-red-800 shadow-sm">
+        ✗ S3 modus_ponens_misapply
+        <br />
+        need Q, not P
+      </div>
+      <div className="rounded-md bg-white p-2 text-[8px] shadow-sm">
+        TA cluster: MP misapply × 14
+      </div>
+    </div>
+  );
+}
+
 const ui: Record<string, React.ReactNode> = {
+  "proof-debugger": <ProofDebuggerUI />,
   "token-lens": <TokenLensUI />,
   "care-atlas": <CareAtlasUI />,
   "claim-trail": <ClaimTrailUI />,
@@ -185,7 +212,8 @@ export function ProjectShowcaseCard({
       <div className="pointer-events-none absolute -bottom-6 -right-2 flex items-end gap-3 opacity-95 transition duration-500 group-hover:-translate-y-2 md:right-6">
         {project.slug === "wattline" ||
         project.slug === "aquifer-net" ||
-        project.slug === "token-lens" ? (
+        project.slug === "token-lens" ||
+        project.slug === "proof-debugger" ? (
           <Laptop>{ui[project.slug]}</Laptop>
         ) : (
           <>

@@ -20,6 +20,7 @@ npm run dev
 | Project | Focus | Standalone | Live demo |
 |---------|--------|------------|-----------|
 | **TokenLens** | AI spend intelligence + quality-gated routing | `:4600` | `/demos/token-lens` |
+| **Proof Debugger** | CMSC250 ND checker (OCaml kernel) | `:4700` | `/demos/proof-debugger` |
 
 ## Earlier lab demos (still in repo)
 

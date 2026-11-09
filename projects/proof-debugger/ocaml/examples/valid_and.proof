@@ -1,0 +1,4 @@
+goal: P /\ Q
+A: P  [Premise]
+B: Q  [Premise]
+C: P /\ Q  [AndIntro A B]

@@ -33,7 +33,7 @@ export function ProjectBrowser() {
       </div>
 
       {tab === "projects" ? (
-        <div className="grid gap-5 md:grid-cols-1">
+        <div className="grid gap-5 md:grid-cols-2">
           {featuredProjects.map((p) => (
             <ProjectShowcaseCard key={p.slug} project={p} href={`/projects/${p.slug}`} />
           ))}

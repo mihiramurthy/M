@@ -1,0 +1,5 @@
+# Student mistakes Q for P in MP conclusion
+goal: P
+P1: P  [Premise]
+P2: P -> Q  [Premise]
+S3: P  [MP P1 P2]

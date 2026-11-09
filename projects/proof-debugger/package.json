@@ -1,0 +1,18 @@
+{
+  "name": "@mihira/proof-debugger",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:ocaml": "dune build --root ocaml",
+    "dev": "npm run build:ocaml && node --watch server/index.js",
+    "start": "npm run build:ocaml && node server/index.js",
+    "test": "npm run build:ocaml && node --test server/*.test.js",
+    "seed": "node server/seed.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "nanoid": "^5.0.9"
+  }
+}

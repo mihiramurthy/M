@@ -34,6 +34,101 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "proof-debugger",
+    name: "Proof Debugger",
+    tagline: "CMSC250 natural-deduction checker with an OCaml kernel",
+    short:
+      "Parse stepwise propositional proofs, stop at the first invalid inference with a precise explanation, and cluster mistake patterns for TAs — verified by OCaml, not an LLM judge.",
+    tags: ["backend"],
+    featured: true,
+    stage: "olive",
+    role: "Systems / PL engineer",
+    type: "Personal project",
+    tools: ["OCaml", "dune", "Node.js", "Express", "natural deduction"],
+    problem:
+      "Discrete-math proofs fail in structural ways that chat graders paper over. Students need the first broken inference named; TAs need pattern clusters across a section.",
+    approach:
+      "A custom OCaml natural-deduction engine parses a small proof DSL, checks each rule application against cited prior lines, and returns the first failure with a hint. Node wraps the binary for a student UI, optional informal→formal sketching, and a TA dashboard that aggregates mistake patterns.",
+    architecture: [
+      "OCaml ND kernel (parse → apply_rule → first error JSON)",
+      "Node proxy spawning proof_check binary",
+      "Optional heuristic/LLM informal→formal draft (never the verifier)",
+      "Submission store + TA mistake clustering",
+    ],
+    tech: ["OCaml", "dune", "Node.js", "Express"],
+    highlights: [
+      "Real logic engine — Jane Street–relevant FP/correctness signal",
+      "First-error explanations with repair hints",
+      "TA clusters like modus_ponens_misapply × N",
+    ],
+    sections: [
+      {
+        id: "overview",
+        label: "Overview",
+        eyebrow: "Overview",
+        title: "A kernel that says no.",
+        body: [
+          "Proof Debugger treats student ND proofs as programs over inference rules. The OCaml checker is the source of truth: if MP cites P and P→Q but concludes P, it fails — with a message that names the mismatch.",
+        ],
+      },
+      {
+        id: "research",
+        label: "Research & Insights",
+        eyebrow: "Research & Insights",
+        title: "Graders confuse fluency with validity.",
+        body: [
+          "LLM-as-judge often accepts locally fluent but globally invalid derivations. A small propositional kernel cannot be sweet-talked.",
+          "Office hours improve when TAs see clusters (wrong MP conclusion, ∧-elim side errors) instead of raw piles of PDFs.",
+        ],
+        insight: {
+          title: "Key insights",
+          points: [
+            {
+              lead: "Stop at first error:",
+              text: "Cascading failures after a bad line just noise the student.",
+            },
+            {
+              lead: "Patterns over anecdotes:",
+              text: "TA dashboards should count structural bug classes.",
+            },
+            {
+              lead: "LLM only for drafting:",
+              text: "Informal→formal may assist; never verify.",
+            },
+          ],
+        },
+      },
+      {
+        id: "solution",
+        label: "The Solution",
+        eyebrow: "The Solution",
+        title: "DSL in, judgment out.",
+        body: [
+          "Students write lines like `S3: Q  [MP P1 P2]`. The engine supports premises, assumptions, MP/MT, ∧/∨ intro-elim, →/¬ intro with discharge, contradiction, DNE, and more.",
+          "Submissions land in a store; `/api/ta/clusters` groups by pattern for the dashboard.",
+        ],
+      },
+      {
+        id: "execution",
+        label: "Execution",
+        eyebrow: "Execution",
+        title: "OCaml binary + Node shell.",
+        body: [
+          "`dune build` produces `main.exe`; Express spawns it per check. The portfolio embeds a JS rule-mirror for Vercel, clearly labeled as non-authoritative.",
+        ],
+      },
+    ],
+    repoPath: "projects/proof-debugger",
+    demoPath: "/demos/proof-debugger",
+    port: 4700,
+    run: [
+      "cd projects/proof-debugger",
+      "# needs: ocaml, dune",
+      "npm install && npm run build:ocaml && npm run seed && npm run dev",
+      "# http://localhost:4700",
+    ],
+  },
+  {
     slug: "token-lens",
     name: "TokenLens",
     tagline: "AI spend intelligence with evidence-based routing",
