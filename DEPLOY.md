@@ -30,7 +30,7 @@ Do **not** set `outputDirectory` in `vercel.json` for this Next app.
 
 ## Fix an existing failed project (`m` on Hobby)
 
-If deploy failed with **`NEXT_OUTPUT_DIR_MISSING`**:
+### A) `NEXT_OUTPUT_DIR_MISSING`
 
 1. Open the project on https://vercel.com → project **`m`**.
 2. **Settings** → **General** → **Root Directory** → **Edit** → set to **`apps/web`** → **Save**.
@@ -46,6 +46,15 @@ If deploy failed with **`NEXT_OUTPUT_DIR_MISSING`**:
 5. **Deployments** → open the failed deployment → **Redeploy**  
    (or **Deployments** → **Create Deployment** → branch **`main`**).  
    Check **Use existing Build Cache** → prefer **unchecked** once after the settings change.
+
+### B) `Module not found` around `layout.tsx` / Plus Jakarta Sans
+
+Next 16’s default Turbopack build can fail when `next/font/google` cannot download from Google (reported as **Module not found**, often dozens of cascading errors). This repo **self-hosts** Plus Jakarta Sans + IBM Plex Mono via `next/font/local` and builds with **`next build --webpack`**.
+
+After that fix is on **`main`**:
+
+1. Confirm **Root Directory** is still **`apps/web`** and **Output Directory** override is **OFF**.
+2. **Deployments** → **Redeploy** the latest **`main`** commit with **Use existing Build Cache** **unchecked**.
 
 After a green deploy, smoke-test `/`, Past work, `/demos/*`, `/Mihira_Murthy_Resume.pdf`.
 

@@ -1,19 +1,33 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, IBM_Plex_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { FloatingNav } from "@/components/FloatingNav";
 import { SiteFooter } from "@/components/SiteFooter";
 
-const sans = Plus_Jakarta_Sans({
-  subsets: ["latin"],
+/** Self-hosted — avoids next/font/google build-time fetches that Turbopack
+ *  reports as Module not found on Vercel when fonts.gstatic.com flakes. */
+const sans = localFont({
+  src: "../fonts/plus-jakarta-sans-latin-wght-normal.woff2",
   variable: "--font-sans",
-  weight: ["400", "500", "600", "700", "800"],
+  weight: "400 800",
+  display: "swap",
 });
 
-const mono = IBM_Plex_Mono({
-  subsets: ["latin"],
+const mono = localFont({
+  src: [
+    {
+      path: "../fonts/ibm-plex-mono-latin-400-normal.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../fonts/ibm-plex-mono-latin-500-normal.woff2",
+      weight: "500",
+      style: "normal",
+    },
+  ],
   variable: "--font-mono",
-  weight: ["400", "500"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
