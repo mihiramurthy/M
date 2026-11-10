@@ -29,6 +29,12 @@ const config: Config = {
           inkblue: "#1A2030",
           graphite: "#0F1412",
         },
+        section: {
+          projects: "#2F6F62",
+          past: "#C56B5A",
+          about: "#3A4A6B",
+          connect: "#E87A3A",
+        },
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],

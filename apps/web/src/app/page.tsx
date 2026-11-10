@@ -29,18 +29,16 @@ export default function HomePage() {
               <br />
               engineer
             </h1>
-            <p className="animate-fade-up-delay mt-5 max-w-md text-lg text-ink-soft">
-              Building systems that make complex decisions{" "}
-              <span className="font-semibold text-accent">legible</span> — for care access,
-              provenance, groundwater risk, grids, and student debt.
+            <p className="animate-fade-up-delay mt-5 max-w-lg text-lg text-ink-soft">
+              Software for ranking, routing, and risk where the decision path stays auditable:
+              care access, claim provenance, groundwater models, grid operations, and
+              student-loan tradeoffs.
             </p>
           </div>
           <div className="animate-fade-up-late space-y-3 text-right font-mono text-[11px] uppercase leading-relaxed tracking-[0.12em] text-ink-muted md:pb-2">
-            <p>Thinks in systems, ships explainable tools, cares about the details.</p>
-            <p>
-              Recently: original demos across fullstack · backend · ml · frontend
-            </p>
-            <p>Currently: looking for internships that ship real software.</p>
+            <p>CS &amp; engineering, AI/ML track.</p>
+            <p>Selected work: fullstack · backend · ml · frontend.</p>
+            <p>Open to software engineering internships.</p>
             <p className="pt-2 normal-case tracking-normal text-ink-soft">
               {profile.school.name} · {profile.school.dates}
             </p>
@@ -49,20 +47,6 @@ export default function HomePage() {
       </header>
 
       <ProjectBrowser />
-
-      <section className="mx-auto max-w-6xl px-6 py-16 md:px-10">
-        <div className="rounded-showcase border border-black/5 bg-white p-8 shadow-float md:p-10">
-          <p className="section-eyebrow">Internship & club artifacts</p>
-          <h2 className="mt-3 text-2xl font-semibold tracking-tight md:text-3xl">
-            Past work lives in the tab above
-          </h2>
-          <p className="mt-3 max-w-2xl text-ink-muted">
-            Switch to <span className="font-medium text-ink">Past work</span> for Exiger,
-            Nokia-adjacent PoC screenshots, and App Dev Club portals — revolving carousels,
-            no source dumps. Original demos stay under Projects.
-          </p>
-        </div>
-      </section>
     </>
   );
 }

@@ -33,7 +33,7 @@ export function PastWorkCard({ project }: { project: PastWorkProject }) {
             {project.role} · {project.org}
           </p>
           <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.12em] text-white/45">
-            {project.dates} · {project.slides.length} slides · private screenshots
+            {project.dates} · {project.slides.length} slides
           </p>
         </div>
         <span className="mt-1 shrink-0 rounded-full bg-white/15 px-3 py-1 text-xs font-medium">
@@ -53,9 +53,6 @@ export function PastWorkCard({ project }: { project: PastWorkProject }) {
                 </li>
               ))}
             </ul>
-            <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-faint">
-              No source link · screenshot proof only
-            </p>
           </div>
           <PastWorkCarousel slides={project.slides} />
         </div>
