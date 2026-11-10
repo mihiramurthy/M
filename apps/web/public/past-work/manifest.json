@@ -2,8 +2,8 @@
   "exiger-supplier-portal": [
     {
       "src": "/past-work/exiger-supplier-portal/slide-01.webp",
-      "caption": "Settings \u2014 my account",
-      "alt": "Exiger Supplier Portal \u2014 Settings \u2014 my account",
+      "caption": "Settings, my account",
+      "alt": "Exiger Supplier Portal, Settings, my account",
       "batch": "batch-01",
       "red_px": 621,
       "size": [
@@ -13,8 +13,8 @@
     },
     {
       "src": "/past-work/exiger-supplier-portal/slide-02.webp",
-      "caption": "Manage \u2014 documents",
-      "alt": "Exiger Supplier Portal \u2014 Manage \u2014 documents",
+      "caption": "Manage, documents",
+      "alt": "Exiger Supplier Portal, Manage, documents",
       "batch": "batch-01",
       "red_px": 7720,
       "size": [
@@ -24,8 +24,8 @@
     },
     {
       "src": "/past-work/exiger-supplier-portal/slide-03.webp",
-      "caption": "Product catalog \u2014 part detail & risk",
-      "alt": "Exiger Supplier Portal \u2014 Product catalog \u2014 part detail & risk",
+      "caption": "Product catalog, part detail & risk",
+      "alt": "Exiger Supplier Portal, Product catalog, part detail & risk",
       "batch": "batch-01",
       "red_px": 14392,
       "size": [
@@ -36,7 +36,7 @@
     {
       "src": "/past-work/exiger-supplier-portal/slide-04.webp",
       "caption": "Orders / risk detail",
-      "alt": "Exiger Supplier Portal \u2014 Orders / risk detail",
+      "alt": "Exiger Supplier Portal, Orders / risk detail",
       "batch": "batch-01",
       "red_px": 4386,
       "size": [
@@ -47,7 +47,7 @@
     {
       "src": "/past-work/exiger-supplier-portal/slide-05.webp",
       "caption": "Work overview",
-      "alt": "Exiger Supplier Portal \u2014 Work overview",
+      "alt": "Exiger Supplier Portal, Work overview",
       "batch": "batch-01",
       "red_px": 7178,
       "size": [
@@ -58,7 +58,7 @@
     {
       "src": "/past-work/exiger-supplier-portal/slide-06.webp",
       "caption": "Messaging entry point",
-      "alt": "Exiger Supplier Portal \u2014 Messaging entry point",
+      "alt": "Exiger Supplier Portal, Messaging entry point",
       "batch": "batch-01",
       "red_px": 3888,
       "size": [
@@ -69,7 +69,7 @@
     {
       "src": "/past-work/exiger-supplier-portal/slide-07.webp",
       "caption": "Product catalog list",
-      "alt": "Exiger Supplier Portal \u2014 Product catalog list",
+      "alt": "Exiger Supplier Portal, Product catalog list",
       "batch": "batch-01",
       "red_px": 4635,
       "size": [
@@ -79,8 +79,8 @@
     },
     {
       "src": "/past-work/exiger-supplier-portal/slide-08.webp",
-      "caption": "Product catalog \u2014 search & hierarchy",
-      "alt": "Exiger Supplier Portal \u2014 Product catalog \u2014 search & hierarchy",
+      "caption": "Product catalog, search & hierarchy",
+      "alt": "Exiger Supplier Portal, Product catalog, search & hierarchy",
       "batch": "batch-01",
       "red_px": 10281,
       "size": [
@@ -90,8 +90,8 @@
     },
     {
       "src": "/past-work/exiger-supplier-portal/slide-09.webp",
-      "caption": "Manage \u2014 supplier overview",
-      "alt": "Exiger Supplier Portal \u2014 Manage \u2014 supplier overview",
+      "caption": "Manage, supplier overview",
+      "alt": "Exiger Supplier Portal, Manage, supplier overview",
       "batch": "batch-01",
       "red_px": 6425,
       "size": [
@@ -101,8 +101,8 @@
     },
     {
       "src": "/past-work/exiger-supplier-portal/slide-10.webp",
-      "caption": "Work \u2014 overview tasks",
-      "alt": "Exiger Supplier Portal \u2014 Work \u2014 overview tasks",
+      "caption": "Work, overview tasks",
+      "alt": "Exiger Supplier Portal, Work, overview tasks",
       "batch": "batch-01",
       "red_px": 3915,
       "size": [
@@ -113,7 +113,7 @@
     {
       "src": "/past-work/exiger-supplier-portal/slide-11.webp",
       "caption": "Questionnaire / work flow",
-      "alt": "Exiger Supplier Portal \u2014 Questionnaire / work flow",
+      "alt": "Exiger Supplier Portal, Questionnaire / work flow",
       "batch": "batch-01",
       "red_px": 9097,
       "size": [
@@ -124,7 +124,7 @@
     {
       "src": "/past-work/exiger-supplier-portal/slide-12.webp",
       "caption": "Task filters",
-      "alt": "Exiger Supplier Portal \u2014 Task filters",
+      "alt": "Exiger Supplier Portal, Task filters",
       "batch": "batch-01",
       "red_px": 6984,
       "size": [
@@ -135,7 +135,7 @@
     {
       "src": "/past-work/exiger-supplier-portal/slide-13.webp",
       "caption": "Risk analysis view",
-      "alt": "Exiger Supplier Portal \u2014 Risk analysis view",
+      "alt": "Exiger Supplier Portal, Risk analysis view",
       "batch": "batch-01",
       "red_px": 3192,
       "size": [
@@ -145,8 +145,8 @@
     },
     {
       "src": "/past-work/exiger-supplier-portal/slide-14.webp",
-      "caption": "Work \u2014 task detail & questionnaire",
-      "alt": "Exiger Supplier Portal \u2014 Work \u2014 task detail & questionnaire",
+      "caption": "Work, task detail & questionnaire",
+      "alt": "Exiger Supplier Portal, Work, task detail & questionnaire",
       "batch": "batch-01",
       "red_px": 11351,
       "size": [
@@ -157,7 +157,7 @@
     {
       "src": "/past-work/exiger-supplier-portal/slide-15.webp",
       "caption": "Work board",
-      "alt": "Exiger Supplier Portal \u2014 Work board",
+      "alt": "Exiger Supplier Portal, Work board",
       "batch": "batch-01",
       "red_px": 13201,
       "size": [
@@ -167,8 +167,8 @@
     },
     {
       "src": "/past-work/exiger-supplier-portal/slide-16.webp",
-      "caption": "Work \u2014 messaging",
-      "alt": "Exiger Supplier Portal \u2014 Work \u2014 messaging",
+      "caption": "Work, messaging",
+      "alt": "Exiger Supplier Portal, Work, messaging",
       "batch": "batch-01",
       "red_px": 6788,
       "size": [
@@ -179,7 +179,7 @@
     {
       "src": "/past-work/exiger-supplier-portal/slide-17.webp",
       "caption": "Orders list",
-      "alt": "Exiger Supplier Portal \u2014 Orders list",
+      "alt": "Exiger Supplier Portal, Orders list",
       "batch": "batch-01",
       "red_px": 4885,
       "size": [
@@ -190,7 +190,7 @@
     {
       "src": "/past-work/exiger-supplier-portal/slide-18.webp",
       "caption": "Dashboard / activity",
-      "alt": "Exiger Supplier Portal \u2014 Dashboard / activity",
+      "alt": "Exiger Supplier Portal, Dashboard / activity",
       "batch": "batch-01",
       "red_px": 9763,
       "size": [
@@ -200,8 +200,8 @@
     },
     {
       "src": "/past-work/exiger-supplier-portal/slide-19.webp",
-      "caption": "Work \u2014 tasks board",
-      "alt": "Exiger Supplier Portal \u2014 Work \u2014 tasks board",
+      "caption": "Work, tasks board",
+      "alt": "Exiger Supplier Portal, Work, tasks board",
       "batch": "batch-01",
       "red_px": 21905,
       "size": [
@@ -211,8 +211,8 @@
     },
     {
       "src": "/past-work/exiger-supplier-portal/slide-20.webp",
-      "caption": "Product catalog \u2014 filtered view",
-      "alt": "Exiger Supplier Portal \u2014 Product catalog \u2014 filtered view",
+      "caption": "Product catalog, filtered view",
+      "alt": "Exiger Supplier Portal, Product catalog, filtered view",
       "batch": "batch-01",
       "red_px": 6297,
       "size": [
@@ -222,8 +222,8 @@
     },
     {
       "src": "/past-work/exiger-supplier-portal/slide-21.webp",
-      "caption": "Settings \u2014 workspace members",
-      "alt": "Exiger Supplier Portal \u2014 Settings \u2014 workspace members",
+      "caption": "Settings, workspace members",
+      "alt": "Exiger Supplier Portal, Settings, workspace members",
       "batch": "batch-02",
       "red_px": 24788,
       "size": [
@@ -233,8 +233,8 @@
     },
     {
       "src": "/past-work/exiger-supplier-portal/slide-22.webp",
-      "caption": "Settings \u2014 account & members nav",
-      "alt": "Exiger Supplier Portal \u2014 Settings \u2014 account & members nav",
+      "caption": "Settings, account & members nav",
+      "alt": "Exiger Supplier Portal, Settings, account & members nav",
       "batch": "batch-02",
       "red_px": 4492,
       "size": [
@@ -243,57 +243,11 @@
       ]
     }
   ],
-  "rtx-url-profiling": [
-    {
-      "src": "/past-work/rtx-url-profiling/slide-01.webp",
-      "caption": "Capability profile generated from company URL",
-      "alt": "Supplier profile generation from URL \u2014 Capability profile generated from company URL",
-      "batch": "batch-02",
-      "red_px": 7230,
-      "size": [
-        1400,
-        824
-      ]
-    },
-    {
-      "src": "/past-work/rtx-url-profiling/slide-02.webp",
-      "caption": "Legal identity & corporate structure",
-      "alt": "Supplier profile generation from URL \u2014 Legal identity & corporate structure",
-      "batch": "batch-02",
-      "red_px": 7134,
-      "size": [
-        1400,
-        833
-      ]
-    },
-    {
-      "src": "/past-work/rtx-url-profiling/slide-03.webp",
-      "caption": "Generation config \u2014 scrape from start URL",
-      "alt": "Supplier profile generation from URL \u2014 Generation config \u2014 scrape from start URL",
-      "batch": "batch-02",
-      "red_px": 7206,
-      "size": [
-        1400,
-        843
-      ]
-    },
-    {
-      "src": "/past-work/rtx-url-profiling/slide-04.webp",
-      "caption": "Corporate structure mapping",
-      "alt": "Supplier profile generation from URL \u2014 Corporate structure mapping",
-      "batch": "batch-02",
-      "red_px": 7085,
-      "size": [
-        1400,
-        838
-      ]
-    }
-  ],
   "adc-people-portal": [
     {
       "src": "/past-work/adc-people-portal/slide-01.webp",
-      "caption": "Team detail \u2014 members & resources",
-      "alt": "App Dev Club People Portal \u2014 Team detail \u2014 members & resources",
+      "caption": "Team detail, members & resources",
+      "alt": "App Dev Club People Portal, Team detail, members & resources",
       "batch": "batch-02",
       "red_px": 0,
       "size": [
@@ -304,7 +258,7 @@
     {
       "src": "/past-work/adc-people-portal/slide-02.webp",
       "caption": "Teams list",
-      "alt": "App Dev Club People Portal \u2014 Teams list",
+      "alt": "App Dev Club People Portal, Teams list",
       "batch": "batch-02",
       "red_px": 0,
       "size": [
@@ -314,8 +268,8 @@
     },
     {
       "src": "/past-work/adc-people-portal/slide-03.webp",
-      "caption": "Events \u2014 RSVP & attendance",
-      "alt": "App Dev Club People Portal \u2014 Events \u2014 RSVP & attendance",
+      "caption": "Events, RSVP & attendance",
+      "alt": "App Dev Club People Portal, Events, RSVP & attendance",
       "batch": "batch-02",
       "red_px": 1952,
       "size": [
@@ -325,8 +279,8 @@
     },
     {
       "src": "/past-work/adc-people-portal/slide-04.webp",
-      "caption": "Sign-in \u2014 App Dev IAM / OpenID",
-      "alt": "App Dev Club People Portal \u2014 Sign-in \u2014 App Dev IAM / OpenID",
+      "caption": "Sign-in, App Dev IAM / OpenID",
+      "alt": "App Dev Club People Portal, Sign-in, App Dev IAM / OpenID",
       "batch": "batch-02",
       "red_px": 0,
       "size": [
@@ -337,7 +291,7 @@
     {
       "src": "/past-work/adc-people-portal/slide-05.webp",
       "caption": "Team meetings calendar",
-      "alt": "App Dev Club People Portal \u2014 Team meetings calendar",
+      "alt": "App Dev Club People Portal, Team meetings calendar",
       "batch": "batch-02",
       "red_px": 0,
       "size": [
@@ -347,8 +301,8 @@
     },
     {
       "src": "/past-work/adc-people-portal/slide-06.webp",
-      "caption": "Team settings \u2014 AWS provision",
-      "alt": "App Dev Club People Portal \u2014 Team settings \u2014 AWS provision",
+      "caption": "Team settings, AWS provision",
+      "alt": "App Dev Club People Portal, Team settings, AWS provision",
       "batch": "batch-02",
       "red_px": 0,
       "size": [
@@ -360,8 +314,8 @@
   "adc-wiki": [
     {
       "src": "/past-work/adc-wiki/slide-01.webp",
-      "caption": "Wiki \u2014 understanding teams",
-      "alt": "App Dev Club Wiki \u2014 Wiki \u2014 understanding teams",
+      "caption": "Wiki, understanding teams",
+      "alt": "App Dev Club Wiki, Wiki, understanding teams",
       "batch": "batch-02",
       "red_px": 1921,
       "size": [
@@ -371,8 +325,8 @@
     },
     {
       "src": "/past-work/adc-wiki/slide-02.webp",
-      "caption": "Wiki \u2014 subteams structure",
-      "alt": "App Dev Club Wiki \u2014 Wiki \u2014 subteams structure",
+      "caption": "Wiki, subteams structure",
+      "alt": "App Dev Club Wiki, Wiki, subteams structure",
       "batch": "batch-02",
       "red_px": 0,
       "size": [
@@ -382,8 +336,8 @@
     },
     {
       "src": "/past-work/adc-wiki/slide-03.webp",
-      "caption": "Wiki \u2014 team creation guide",
-      "alt": "App Dev Club Wiki \u2014 Wiki \u2014 team creation guide",
+      "caption": "Wiki, team creation guide",
+      "alt": "App Dev Club Wiki, Wiki, team creation guide",
       "batch": "batch-02",
       "red_px": 0,
       "size": [
@@ -393,8 +347,8 @@
     },
     {
       "src": "/past-work/adc-wiki/slide-04.webp",
-      "caption": "Wiki \u2014 People Portal introduction",
-      "alt": "App Dev Club Wiki \u2014 Wiki \u2014 People Portal introduction",
+      "caption": "Wiki, People Portal introduction",
+      "alt": "App Dev Club Wiki, Wiki, People Portal introduction",
       "batch": "batch-02",
       "red_px": 0,
       "size": [
@@ -407,7 +361,7 @@
     {
       "src": "/past-work/adc-git-explore/slide-01.webp",
       "caption": "Explore repos across partner orgs",
-      "alt": "Internal git explore \u2014 Explore repos across partner orgs",
+      "alt": "Internal git explore, Explore repos across partner orgs",
       "batch": "batch-02",
       "red_px": 756,
       "size": [

@@ -8,6 +8,7 @@ import {
   skills,
 } from "@/content/experience";
 import { AboutHeadshotStack, AboutPhotoCarousel } from "@/components/AboutPhotoSlots";
+import { currentWork } from "@/content/currentWork";
 
 export const metadata = { title: "About" };
 
@@ -26,14 +27,15 @@ export default function AboutPage() {
           </p>
           <div className="mt-6 space-y-4 text-base leading-relaxed text-ink-soft">
             <p>
-              Software engineer in training on UMD&apos;s CS &amp; Engineering AI/ML track. I build
-              systems where ranking, routing, and risk stay auditable: matchers you can inspect,
-              pipelines with event logs, and models with readable contribution lists.
+              Software engineer on UMD&apos;s CS and Engineering AI/ML track. I build systems where
+              ranking, routing, and risk stay auditable, with matchers you can inspect, pipelines
+              with event logs, and models with readable contribution lists.
             </p>
             <p>
-              Core work spans App Dev Club engineering, interpretable ML research, and LLM tools for
-              security triage. Secondary thread: product sense from frontend and PM work on an
-              Exiger supplier-risk portal, plus shipping with multi-person teams.
+              Primary work is software and AI/ML engineering across App Dev Club projects,
+              interpretable ML research, and security triage prototypes. I also carry clear PM
+              signals from scoping features, aligning stakeholders, and shipping with teams on the
+              Exiger portal and current Booz Allen engagement.
             </p>
           </div>
           <div className="mt-6 flex flex-wrap gap-3">
@@ -44,10 +46,10 @@ export default function AboutPage() {
               Download resume
             </Link>
             <Link
-              href="/#projects"
+              href="/#current"
               className="rounded-full border border-black/10 px-5 py-2.5 text-sm font-medium"
             >
-              See projects
+              Current work
             </Link>
           </div>
         </div>
@@ -55,9 +57,20 @@ export default function AboutPage() {
 
       <AboutPhotoCarousel />
 
+      <section className="mt-16 rounded-showcase border border-black/5 bg-paper-soft p-6 md:p-8">
+        <p className="section-eyebrow section-eyebrow--about">{currentWork.title}</p>
+        <h2 className="mt-2 text-2xl font-semibold tracking-tight md:text-3xl">
+          {currentWork.name}
+        </h2>
+        <p className="mt-2 text-sm text-ink-muted">
+          {currentWork.role} · {currentWork.partner} with {currentWork.org} · {currentWork.dates}
+        </p>
+        <p className="mt-4 max-w-3xl text-ink-soft">{currentWork.summary}</p>
+      </section>
+
       <section className="mt-24">
         <p className="section-eyebrow section-eyebrow--about">Experience</p>
-        <h2 className="mt-2 text-3xl font-semibold tracking-tight">Roles &amp; research</h2>
+        <h2 className="mt-2 text-3xl font-semibold tracking-tight">Roles and research</h2>
         <ol className="mt-10 space-y-10">
           {experience.map((job) => (
             <li key={job.role + job.dates} className="grid gap-3 md:grid-cols-[200px_1fr]">
@@ -94,7 +107,7 @@ export default function AboutPage() {
           <div className="mt-4 space-y-5">
             {Object.entries(skills).map(([group, items]) => (
               <div key={group}>
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-ink">
+                <h3 className="text-sm font-semibold uppercase tracking-[0.08em] text-ink">
                   {group}
                 </h3>
                 <p className="mt-2 text-ink-soft">{items.join(" · ")}</p>

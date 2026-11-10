@@ -1,6 +1,5 @@
 /**
- * About photography.
- * Files live under `apps/web/public/about/`.
+ * About photography under apps/web/public/about/.
  */
 export type AboutPhoto = {
   id: string;
@@ -9,7 +8,6 @@ export type AboutPhoto = {
   caption: string;
 };
 
-/** Primary portrait in the About frame stack. */
 export const aboutHeadshot: AboutPhoto = {
   id: "headshot",
   src: "/about/headshot.jpg",
@@ -17,7 +15,6 @@ export const aboutHeadshot: AboutPhoto = {
   caption: "Headshot",
 };
 
-/** Short carousel: leadership and shipping context beyond the resume list. */
 export const aboutCarousel: AboutPhoto[] = [
   {
     id: "carousel-01",
@@ -28,14 +25,14 @@ export const aboutCarousel: AboutPhoto[] = [
   {
     id: "carousel-02",
     src: "/about/carousel-02.jpg",
-    alt: "Maryland Mayuri team in formal attire on campus steps",
-    caption: "Maryland Mayuri, PR team",
+    alt: "Maryland Mayuri team on campus steps",
+    caption: "Maryland Mayuri PR team",
   },
   {
     id: "carousel-03",
     src: "/about/carousel-03.jpg",
-    alt: "App Dev Club final demo for the Exiger supplier-risk portal",
-    caption: "Exiger portal, App Dev final demo",
+    alt: "App Dev Club final demo for the Exiger supplier risk portal",
+    caption: "Exiger App Dev final demo",
   },
   {
     id: "carousel-04",

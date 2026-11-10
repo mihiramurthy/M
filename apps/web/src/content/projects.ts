@@ -38,7 +38,7 @@ export const projects: Project[] = [
     name: "Concurrency Finder",
     tagline: "Deterministic C scheduler that finds, replays, and shrinks races",
     short:
-      "Controlled thread scheduling with seed replay and delta-debug shrinking, then clear numbers against random stress testing.",
+      "Controlled thread scheduling with seed replay and delta debug shrinking, then clear numbers against random stress testing.",
     tags: ["backend"],
     featured: true,
     stage: "slate",
@@ -57,7 +57,7 @@ export const projects: Project[] = [
     ],
     tech: ["C11", "make", "Node.js", "Express"],
     highlights: [
-      "Deterministic replay from seed: trading-systems / OS signal",
+      "Deterministic replay from seed for trading systems and OS signal",
       "Shrink failing schedules to minimal sequences",
       "Benchmarks: explore finds bank_race on trial 1 vs random ~trial 3",
     ],
@@ -149,7 +149,7 @@ export const projects: Project[] = [
     ],
     tech: ["OCaml", "dune", "Node.js", "Express"],
     highlights: [
-      "Real logic engine: Jane Street–relevant FP/correctness signal",
+      "Real logic engine with Jane Street relevant FP and correctness signal",
       "First-error explanations with repair hints",
       "TA clusters like modus_ponens_misapply × N",
     ],
@@ -233,14 +233,14 @@ export const projects: Project[] = [
     type: "Personal project",
     tools: ["Node.js", "Express", "proxy logging", "heuristics", "Next.js"],
     problem:
-      "LLM spend grows silently across teams. Blind cheaper-model routing tanks quality; teams need cost attribution paired with output-quality evidence.",
+      "LLM spend grows silently across teams. Blind cheaper model routing tanks quality; teams need cost attribution paired with output quality evidence.",
     approach:
       "TokenLens sits as a thin proxy in front of chat APIs. Every request is logged, classified by prompt complexity, scored for quality/hallucination risk, attributed to a team, and evaluated for waste, so routing recommendations are evidence-based.",
     architecture: [
       "OpenAI- and Anthropic-compatible proxy endpoints",
       "Prompt complexity classifier (trivial → reasoning)",
       "Output-quality / hallucination scorer with factor lists",
-      "Team cost attribution + waste → cheaper-model recommender",
+      "Team cost attribution + waste → cheaper model recommender",
       "Polylane-inspired observability dashboard",
     ],
     tech: ["Node.js", "Express", "JavaScript", "mock + optional live providers"],
@@ -257,7 +257,7 @@ export const projects: Project[] = [
         title: "Make every token accountable.",
         body: [
           "TokenLens is an AI spend control plane: a proxy that logs chat completions, tags them to teams, and surfaces where flagship models are wasted on trivial prompts.",
-          "The twist is evidence: cheaper routing is gated by output-quality and hallucination-risk scores, not a flat “always use mini” policy.",
+          "The twist is evidence. Cheaper routing is gated by output quality and hallucination risk scores, not a flat always use mini policy.",
         ],
       },
       {
@@ -340,7 +340,7 @@ export const projects: Project[] = [
     ],
     tech: ["Node.js", "Express", "JavaScript", "HTML/CSS"],
     highlights: [
-      "Explainable ranking: every score point is readable",
+      "Explainable ranking where every score point is readable",
       "Contrast endpoint for sliding-scale vs boutique",
       "Unit-tested match edge cases",
     ],
@@ -351,7 +351,7 @@ export const projects: Project[] = [
         eyebrow: "Overview",
         title: "Taking the guesswork out of affordable care.",
         body: [
-          "Directory apps list providers. Few model affordability, language, and specialty together, or tell you what documents charity-care intake needs.",
+          "Directory apps list providers. Few model affordability, language, and specialty together, or tell you what documents charity care intake needs.",
           "CareAtlas turns a short eligibility profile into a ranked shortlist with reasons you can audit, then a visit-prep checklist so the first appointment is usable.",
         ],
       },
@@ -362,7 +362,7 @@ export const projects: Project[] = [
         title: "Access is a systems problem.",
         body: [
           "Interviews and desk research around FQHC / sliding-scale intake showed the same failure modes: patients optimize for proximity, then discover cash prices or language gaps too late.",
-          "Explainability mattered as much as accuracy: people needed to trust why a clinic ranked higher.",
+          "Explainability mattered as much as accuracy. People needed to trust why a clinic ranked higher.",
         ],
         insight: {
           title: "Key insights",
@@ -521,7 +521,7 @@ export const projects: Project[] = [
     highlights: [
       "ROC-AUC ~0.77 on held-out data",
       "Contribution breakdown per prediction",
-      "CPU-only: no cloud GPU required",
+      "CPU only with no cloud GPU required",
     ],
     sections: [
       {
@@ -530,7 +530,7 @@ export const projects: Project[] = [
         eyebrow: "Overview",
         title: "Make aquifer risk legible.",
         body: [
-          "AquiferNet connects nitrate, chemistry, land-use proximity, and well depth into a probability you can inspect, with the model coefficients and eval metrics in the open.",
+          "AquiferNet connects nitrate, chemistry, land use proximity, and well depth into a probability you can inspect, with the model coefficients and eval metrics in the open.",
         ],
       },
       {
@@ -673,7 +673,7 @@ export const projects: Project[] = [
     name: "LoanLattice",
     tagline: "See the forbearance trap before you pause",
     short:
-      "Side-by-side Standard vs IDR vs forbearance-then-standard: cash, months, and capitalization made visible.",
+      "Side by side Standard vs IDR vs forbearance then standard, with cash, months, and capitalization made visible.",
     tags: ["fullstack"],
     featured: false,
     stage: "cocoa",
