@@ -30,14 +30,15 @@ export default function HomePage() {
               engineer
             </h1>
             <p className="animate-fade-up-delay mt-5 max-w-lg text-lg text-ink-soft">
-              Software for ranking, routing, and risk where the decision path stays auditable:
-              care access, claim provenance, groundwater models, grid operations, and
-              student-loan tradeoffs.
+              Software engineer (AI/ML) building systems for ranking, routing, and risk with
+              auditable decision paths: care access, claim provenance, groundwater models, grid
+              operations, and student-loan tradeoffs.
             </p>
           </div>
           <div className="animate-fade-up-late space-y-3 text-right font-mono text-[11px] uppercase leading-relaxed tracking-[0.12em] text-ink-muted md:pb-2">
-            <p>CS &amp; engineering, AI/ML track.</p>
-            <p>Selected work: fullstack · backend · ml · frontend.</p>
+            <p>Primary: SWE · AI/ML systems.</p>
+            <p>Stack depth: fullstack · backend · ml · frontend.</p>
+            <p>Also: product sense from shipping with teams.</p>
             <p>Open to software engineering internships.</p>
             <p className="pt-2 normal-case tracking-normal text-ink-soft">
               {profile.school.name} · {profile.school.dates}

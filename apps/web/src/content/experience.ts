@@ -3,9 +3,9 @@ export const profile = {
   email: "mmurthy1@terpmail.umd.edu",
   phone: "669-261-0364",
   linkedin: "https://www.linkedin.com/in/mihiramurthy/",
-  headline: "Building systems that keep complex decisions inspectable",
+  headline: "Software engineer (AI/ML) building auditable systems",
   supporting:
-    "CS & Engineering (AI/ML) at UMD: fullstack products, backend pipelines, and ML tools with readable decision paths.",
+    "CS & Engineering (AI/ML) at UMD: fullstack, backend, and ML systems first; product delivery experience from shipping with teams.",
   school: {
     name: "University of Maryland",
     degree: "B.S. Computer Science and Engineering (AI/ML track)",
@@ -47,9 +47,9 @@ export const experience = [
     org: "UMD App Dev Club",
     dates: "Aug 2025 – May 2026",
     bullets: [
-      "Developed a supplier risk management portal for AI-powered TPRM from purchase orders, payment/credit history, and compliance posture.",
-      "Led schema/system design for Okta-backed 2FA and company-scoped registration across frontend and backend.",
-      "Shipped Product Catalog, Orders, Work, and Messaging with searchable color-coded risk scores and in-app messaging.",
+      "Built the supplier-risk portal UI and client data flows for AI-powered TPRM from purchase orders, payment/credit history, and compliance posture.",
+      "Owned schema and system design for Okta-backed 2FA and company-scoped registration across frontend and backend.",
+      "Shipped Product Catalog, Orders, Work, and Messaging with searchable color-coded risk scores; coordinated scope with the partner team through final demo.",
     ],
   },
 ];

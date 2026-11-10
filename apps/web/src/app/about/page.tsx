@@ -26,14 +26,14 @@ export default function AboutPage() {
           </p>
           <div className="mt-6 space-y-4 text-base leading-relaxed text-ink-soft">
             <p>
-              CS &amp; Engineering student on the AI/ML track at UMD. I work on systems where
-              ranking, routing, and risk stay auditable: matchers you can inspect, pipelines with
-              event logs, and models with readable contribution lists.
+              Software engineer in training on UMD&apos;s CS &amp; Engineering AI/ML track. I build
+              systems where ranking, routing, and risk stay auditable: matchers you can inspect,
+              pipelines with event logs, and models with readable contribution lists.
             </p>
             <p>
-              Outside coursework I lead App Dev Club engineering work, research interpretable ML,
-              and prototype LLM tools for security triage. This site pairs personal demos you can
-              run with selected internship and club interface screenshots.
+              Core work spans App Dev Club engineering, interpretable ML research, and LLM tools for
+              security triage. Secondary thread: product sense from frontend and PM work on an
+              Exiger supplier-risk portal, plus shipping with multi-person teams.
             </p>
           </div>
           <div className="mt-6 flex flex-wrap gap-3">

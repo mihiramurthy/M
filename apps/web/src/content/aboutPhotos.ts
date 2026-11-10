@@ -1,7 +1,6 @@
 /**
- * About photography slots.
- * Drop files under `apps/web/public/about/` using the paths below.
- * Until files exist, the UI renders labeled placeholders.
+ * About photography.
+ * Files live under `apps/web/public/about/`.
  */
 export type AboutPhoto = {
   id: string;
@@ -10,7 +9,7 @@ export type AboutPhoto = {
   caption: string;
 };
 
-/** Primary portrait shown in the About frame stack. */
+/** Primary portrait in the About frame stack. */
 export const aboutHeadshot: AboutPhoto = {
   id: "headshot",
   src: "/about/headshot.jpg",
@@ -18,30 +17,30 @@ export const aboutHeadshot: AboutPhoto = {
   caption: "Headshot",
 };
 
-/** Short carousel (3–4 frames). Keep captions concrete, not resume bullets. */
+/** Short carousel: leadership and shipping context beyond the resume list. */
 export const aboutCarousel: AboutPhoto[] = [
   {
     id: "carousel-01",
     src: "/about/carousel-01.jpg",
-    alt: "Mihira at a campus or lab setting",
-    caption: "Campus / lab",
+    alt: "Mihira receiving a California DECA placement award on stage",
+    caption: "California DECA placement",
   },
   {
     id: "carousel-02",
     src: "/about/carousel-02.jpg",
-    alt: "Mihira presenting or collaborating",
-    caption: "Talk / collab",
+    alt: "Maryland Mayuri team in formal attire on campus steps",
+    caption: "Maryland Mayuri, PR team",
   },
   {
     id: "carousel-03",
     src: "/about/carousel-03.jpg",
-    alt: "Field or project context photo",
-    caption: "In the field",
+    alt: "App Dev Club final demo for the Exiger supplier-risk portal",
+    caption: "Exiger portal, App Dev final demo",
   },
   {
     id: "carousel-04",
     src: "/about/carousel-04.jpg",
-    alt: "Personal interest or community context",
-    caption: "Beyond resume",
+    alt: "CASL state board leadership group photo",
+    caption: "CASL state board",
   },
 ];
