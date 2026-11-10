@@ -26,15 +26,6 @@ export const experience = [
     ],
   },
   {
-    role: "AI Solution Engineering Intern",
-    org: "Nokia",
-    dates: "May 2026 to Aug 2026",
-    bullets: [
-      "Designed AI and ML proofs of concept for Product Security as independent microservices with architecture partners.",
-      "Built an LLM based vulnerability classifier that triages unstructured descriptions by severity, type, and relevance.",
-    ],
-  },
-  {
     role: "Frontend Engineer and PM, Exiger",
     org: "UMD App Dev Club",
     dates: "Aug 2025 to May 2026",
