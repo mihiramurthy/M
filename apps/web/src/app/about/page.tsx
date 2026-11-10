@@ -1,12 +1,5 @@
 import Link from "next/link";
-import {
-  activities,
-  awards,
-  experience,
-  profile,
-  resumeProject,
-  skills,
-} from "@/content/experience";
+import { activities, awards, profile, skills } from "@/content/experience";
 import { AboutHeadshotStack, AboutPhotoCarousel } from "@/components/AboutPhotoSlots";
 import { currentWork } from "@/content/currentWork";
 
@@ -33,10 +26,9 @@ export default function AboutPage() {
               design, and careful analysis, plus the coordination it takes to ship with a team.
             </p>
             <p>
-              Recent work spans App Dev Club engineering, interpretable ML research, security side
-              LLM prototypes, and partner delivery on Exiger and Booz Allen engagements. I care
-              about intelligent tools that stay understandable, and about growing through real
-              collaboration rather than solo demos alone.
+              Recent work spans App Dev Club engineering and partner delivery on Exiger and Booz
+              Allen engagements. I care about intelligent tools that stay understandable, and about
+              growing through real collaboration rather than solo demos alone.
             </p>
             <div className="rounded-2xl bg-paper-soft px-4 py-4">
               <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-muted">
@@ -77,39 +69,6 @@ export default function AboutPage() {
           {currentWork.role} · {currentWork.partner} with {currentWork.org} · {currentWork.dates}
         </p>
         <p className="mt-4 max-w-3xl text-ink-soft">{currentWork.summary}</p>
-      </section>
-
-      <section className="mt-24">
-        <p className="section-eyebrow section-eyebrow--about">Experience</p>
-        <h2 className="mt-2 text-3xl font-semibold tracking-tight">Roles and research</h2>
-        <ol className="mt-10 space-y-10">
-          {experience.map((job) => (
-            <li key={job.role + job.dates} className="grid gap-3 md:grid-cols-[200px_1fr]">
-              <div>
-                <p className="font-mono text-xs text-ink-muted">{job.dates}</p>
-                <p className="mt-1 text-sm text-accent">{job.org}</p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold">{job.role}</h3>
-                <ul className="mt-3 space-y-2 text-ink-soft">
-                  {job.bullets.map((b) => (
-                    <li key={b}>{b}</li>
-                  ))}
-                </ul>
-              </div>
-            </li>
-          ))}
-        </ol>
-
-        <div className="mt-12 rounded-2xl bg-paper-soft p-6">
-          <h3 className="text-lg font-semibold">{resumeProject.name}</h3>
-          <p className="mt-1 font-mono text-xs text-ink-muted">{resumeProject.tech}</p>
-          <ul className="mt-3 space-y-2 text-ink-soft">
-            {resumeProject.bullets.map((b) => (
-              <li key={b}>{b}</li>
-            ))}
-          </ul>
-        </div>
       </section>
 
       <section className="mt-20 grid gap-10 md:grid-cols-2">
