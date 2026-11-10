@@ -31,8 +31,8 @@ export const aboutCarousel: AboutPhoto[] = [
   {
     id: "carousel-03",
     src: "/about/carousel-03.jpg",
-    alt: "Maryland Mayuri team on campus steps",
-    caption: "Maryland Mayuri PR team",
+    alt: "Maryland Mayuri group on campus steps",
+    caption: "Maryland Mayuri",
   },
   {
     id: "carousel-04",
