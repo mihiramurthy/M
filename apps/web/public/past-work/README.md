@@ -16,4 +16,4 @@ Wire a project in `apps/web/src/content/pastWork.ts` (slug, copy from resume acc
 2. Crop/remove red annotations, export WEBP (~1400px wide) into the right slug folder
 3. Append slide entries (and optionally a new project object) in `pastWork.ts`
 
-No source / demo links — screenshot proof only.
+Screenshots for review context only.

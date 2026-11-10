@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     template: "%s · Mihira Murthy",
   },
   description:
-    "Personal portfolio of Mihira Murthy: UMD CS & Engineering (AI/ML). Projects across fullstack, backend, ML, and frontend.",
+    "Portfolio of Mihira Murthy, UMD CS and Engineering AI/ML student. Software engineering, applied AI, and selected runnable demos.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -56,11 +56,11 @@ export function ProjectBrowser() {
           <div className="max-w-2xl">
             <p className="section-eyebrow section-eyebrow--past">Past work</p>
             <h3 className="mt-2 text-2xl font-semibold tracking-tight md:text-3xl">
-              Industry and campus engineering
+              Partner and club engineering
             </h3>
             <p className="mt-3 text-ink-muted">
-              Interface screens from supplier-risk product work at Exiger, a Product Security
-              prototype at Nokia, and platforms built with the UMD App Dev Club.
+              Screens from the Exiger supplier risk portal and a combined App Dev Club platform
+              spanning People Portal, Tech Ops docs, and internal git explore.
             </p>
           </div>
           {pastWorkProjects.map((p) => (

@@ -70,11 +70,11 @@ export function AboutPhotoCarousel() {
 
   return (
     <section className="mt-16">
-      <p className="section-eyebrow section-eyebrow--about">Around campus &amp; work</p>
-      <h2 className="mt-2 text-3xl font-semibold tracking-tight">A few frames</h2>
+      <p className="section-eyebrow section-eyebrow--about">Context</p>
+      <h2 className="mt-2 text-3xl font-semibold tracking-tight">Selected frames</h2>
       <p className="mt-3 max-w-2xl text-ink-muted">
-        Context beyond the resume: campus, collaboration, and work settings. Slots are reserved
-        for a headshot and a short sequence of stills.
+        Competition placement, campus organizations, and a shipped club demo with an industry
+        partner. Light leadership context next to the engineering work.
       </p>
 
       <div className="mt-8 overflow-hidden rounded-showcase border border-black/5 bg-white shadow-float">

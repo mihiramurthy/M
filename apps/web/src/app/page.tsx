@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LetterBlockName } from "@/components/LetterBlockName";
 import { ProjectBrowser } from "@/components/ProjectBrowser";
+import { CurrentWorkCard } from "@/components/CurrentWorkCard";
 import { profile } from "@/content/experience";
 
 export default function HomePage() {
@@ -29,16 +30,18 @@ export default function HomePage() {
               <br />
               engineer
             </h1>
-            <p className="animate-fade-up-delay mt-5 max-w-lg text-lg text-ink-soft">
-              Software for ranking, routing, and risk where the decision path stays auditable:
-              care access, claim provenance, groundwater models, grid operations, and
-              student-loan tradeoffs.
+            <p className="animate-fade-up-delay mt-5 max-w-xl text-lg text-ink-soft">
+              UMD computer science student focused on software engineering and artificial
+              intelligence, with enough product sense to scope work, talk to stakeholders, and
+              ship. I write systems and models you can inspect, from APIs and schedulers to trained
+              classifiers with metrics on the page.
             </p>
           </div>
           <div className="animate-fade-up-late space-y-3 text-right font-mono text-[11px] uppercase leading-relaxed tracking-[0.12em] text-ink-muted md:pb-2">
-            <p>CS &amp; engineering, AI/ML track.</p>
-            <p>Selected work: fullstack · backend · ml · frontend.</p>
-            <p>Open to software engineering internships.</p>
+            <p>Software engineering · AI/ML · light PM</p>
+            <p>System design · data analysis · agile delivery</p>
+            <p>UX collaboration · technical docs · team lead</p>
+            <p>Open to software engineering internships</p>
             <p className="pt-2 normal-case tracking-normal text-ink-soft">
               {profile.school.name} · {profile.school.dates}
             </p>
@@ -46,6 +49,7 @@ export default function HomePage() {
         </div>
       </header>
 
+      <CurrentWorkCard />
       <ProjectBrowser />
     </>
   );

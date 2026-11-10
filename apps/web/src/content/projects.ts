@@ -38,7 +38,7 @@ export const projects: Project[] = [
     name: "Concurrency Finder",
     tagline: "Deterministic C scheduler that finds, replays, and shrinks races",
     short:
-      "Controlled thread scheduling with seed replay and delta-debug shrinking, then clear numbers against random stress testing.",
+      "Controlled thread scheduling with seed replay and delta debug shrinking, then clear numbers against random stress testing.",
     tags: ["backend"],
     featured: true,
     stage: "slate",
@@ -57,7 +57,7 @@ export const projects: Project[] = [
     ],
     tech: ["C11", "make", "Node.js", "Express"],
     highlights: [
-      "Deterministic replay from seed: trading-systems / OS signal",
+      "Deterministic replay from seed for trading systems and OS signal",
       "Shrink failing schedules to minimal sequences",
       "Benchmarks: explore finds bank_race on trial 1 vs random ~trial 3",
     ],
@@ -149,7 +149,7 @@ export const projects: Project[] = [
     ],
     tech: ["OCaml", "dune", "Node.js", "Express"],
     highlights: [
-      "Real logic engine: Jane Street–relevant FP/correctness signal",
+      "Real logic engine with Jane Street relevant FP and correctness signal",
       "First-error explanations with repair hints",
       "TA clusters like modus_ponens_misapply × N",
     ],
@@ -233,14 +233,14 @@ export const projects: Project[] = [
     type: "Personal project",
     tools: ["Node.js", "Express", "proxy logging", "heuristics", "Next.js"],
     problem:
-      "LLM spend grows silently across teams. Blind cheaper-model routing tanks quality; teams need cost attribution paired with output-quality evidence.",
+      "LLM spend grows silently across teams. Blind cheaper model routing tanks quality; teams need cost attribution paired with output quality evidence.",
     approach:
       "TokenLens sits as a thin proxy in front of chat APIs. Every request is logged, classified by prompt complexity, scored for quality/hallucination risk, attributed to a team, and evaluated for waste, so routing recommendations are evidence-based.",
     architecture: [
       "OpenAI- and Anthropic-compatible proxy endpoints",
       "Prompt complexity classifier (trivial → reasoning)",
       "Output-quality / hallucination scorer with factor lists",
-      "Team cost attribution + waste → cheaper-model recommender",
+      "Team cost attribution + waste → cheaper model recommender",
       "Polylane-inspired observability dashboard",
     ],
     tech: ["Node.js", "Express", "JavaScript", "mock + optional live providers"],
@@ -257,7 +257,7 @@ export const projects: Project[] = [
         title: "Make every token accountable.",
         body: [
           "TokenLens is an AI spend control plane: a proxy that logs chat completions, tags them to teams, and surfaces where flagship models are wasted on trivial prompts.",
-          "The twist is evidence: cheaper routing is gated by output-quality and hallucination-risk scores, not a flat “always use mini” policy.",
+          "The twist is evidence. Cheaper routing is gated by output quality and hallucination risk scores, not a flat always use mini policy.",
         ],
       },
       {
@@ -317,6 +317,95 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "relay-net",
+    name: "RelayNet",
+    tagline: "TensorFlow early warning for microservice SLO breaches",
+    short:
+      "Conv1D classifier on golden signal windows that separates healthy traffic from latency, error, and saturation risk, with portable JS inference and open eval metrics.",
+    tags: ["ml", "backend"],
+    featured: true,
+    stage: "pine",
+    role: "ML / reliability engineer",
+    type: "Personal project",
+    tools: ["TensorFlow", "Keras", "NumPy", "scikit-learn", "Node.js"],
+    problem:
+      "Dashboards show latency, errors, saturation, and traffic, but on-call still needs a short horizon guess about which failure mode is forming before the SLO page lights up.",
+    approach:
+      "Synthesize multivariate telemetry windows, train a TensorFlow Conv1D network, export weights to JSON, and run the same forward pass in JS so the portfolio demo matches training.",
+    architecture: [
+      "Synthetic golden signal windows (32 steps × 8 channels)",
+      "Keras Conv1D → GlobalAveragePooling → Dense softmax",
+      "Portable model.json for JS inference",
+      "Held out accuracy, macro F1, and confusion matrix",
+    ],
+    tech: ["Python", "TensorFlow", "Keras", "NumPy", "Node.js"],
+    highlights: [
+      "Real TensorFlow training script with EarlyStopping",
+      "~94% held out accuracy / macro F1 on noisy synthetic regimes",
+      "Interactive demo with class probabilities and channel energy",
+    ],
+    sections: [
+      {
+        id: "overview",
+        label: "Overview",
+        eyebrow: "Overview",
+        title: "Classify the failure mode early.",
+        body: [
+          "RelayNet reads a short window of latency, errors, CPU, memory, RPS, queue depth, GC pauses, and downstream latency, then returns healthy, latency risk, error risk, or saturation risk.",
+        ],
+      },
+      {
+        id: "research",
+        label: "Research & Insights",
+        eyebrow: "Research & Insights",
+        title: "Charts are not a decision.",
+        body: [
+          "On-call needs a compact hypothesis. A Conv1D over the recent window captures rising slopes and bursts better than a single snapshot threshold.",
+        ],
+        insight: {
+          title: "Key insights",
+          points: [
+            {
+              lead: "Train in TensorFlow,",
+              text: "ship a portable JSON graph so the web demo does not need a Python runtime.",
+            },
+            {
+              lead: "Keep eval honest,",
+              text: "label noise and overlapping regimes bring accuracy into a believable band instead of a perfect toy score.",
+            },
+          ],
+        },
+      },
+      {
+        id: "solution",
+        label: "The Solution",
+        eyebrow: "The Solution",
+        title: "Train, export, replay.",
+        body: [
+          "One training script writes model, metrics, and example windows. The Next demo and Express UI both call the same JS forward pass.",
+        ],
+      },
+      {
+        id: "execution",
+        label: "Execution",
+        eyebrow: "Execution",
+        title: "Reproducible ML you can click.",
+        body: [
+          "Artifacts are committed. Retrain with npm run train when you change the synthesizer. Tests assert demo examples still produce valid class outputs.",
+        ],
+      },
+    ],
+    repoPath: "projects/relay-net",
+    demoPath: "/demos/relay-net",
+    port: 4310,
+    run: [
+      "cd projects/relay-net",
+      "pip install -r requirements.txt && npm install",
+      "npm run train && npm test && npm run dev",
+      "# http://localhost:4310",
+    ],
+  },
+  {
     slug: "care-atlas",
     name: "CareAtlas",
     tagline: "Find care you can actually afford",
@@ -340,7 +429,7 @@ export const projects: Project[] = [
     ],
     tech: ["Node.js", "Express", "JavaScript", "HTML/CSS"],
     highlights: [
-      "Explainable ranking: every score point is readable",
+      "Explainable ranking where every score point is readable",
       "Contrast endpoint for sliding-scale vs boutique",
       "Unit-tested match edge cases",
     ],
@@ -351,7 +440,7 @@ export const projects: Project[] = [
         eyebrow: "Overview",
         title: "Taking the guesswork out of affordable care.",
         body: [
-          "Directory apps list providers. Few model affordability, language, and specialty together, or tell you what documents charity-care intake needs.",
+          "Directory apps list providers. Few model affordability, language, and specialty together, or tell you what documents charity care intake needs.",
           "CareAtlas turns a short eligibility profile into a ranked shortlist with reasons you can audit, then a visit-prep checklist so the first appointment is usable.",
         ],
       },
@@ -362,7 +451,7 @@ export const projects: Project[] = [
         title: "Access is a systems problem.",
         body: [
           "Interviews and desk research around FQHC / sliding-scale intake showed the same failure modes: patients optimize for proximity, then discover cash prices or language gaps too late.",
-          "Explainability mattered as much as accuracy: people needed to trust why a clinic ranked higher.",
+          "Explainability mattered as much as accuracy. People needed to trust why a clinic ranked higher.",
         ],
         insight: {
           title: "Key insights",
@@ -521,7 +610,7 @@ export const projects: Project[] = [
     highlights: [
       "ROC-AUC ~0.77 on held-out data",
       "Contribution breakdown per prediction",
-      "CPU-only: no cloud GPU required",
+      "CPU only with no cloud GPU required",
     ],
     sections: [
       {
@@ -530,7 +619,7 @@ export const projects: Project[] = [
         eyebrow: "Overview",
         title: "Make aquifer risk legible.",
         body: [
-          "AquiferNet connects nitrate, chemistry, land-use proximity, and well depth into a probability you can inspect, with the model coefficients and eval metrics in the open.",
+          "AquiferNet connects nitrate, chemistry, land use proximity, and well depth into a probability you can inspect, with the model coefficients and eval metrics in the open.",
         ],
       },
       {
@@ -673,7 +762,7 @@ export const projects: Project[] = [
     name: "LoanLattice",
     tagline: "See the forbearance trap before you pause",
     short:
-      "Side-by-side Standard vs IDR vs forbearance-then-standard: cash, months, and capitalization made visible.",
+      "Side by side Standard vs IDR vs forbearance then standard, with cash, months, and capitalization made visible.",
     tags: ["fullstack"],
     featured: false,
     stage: "cocoa",

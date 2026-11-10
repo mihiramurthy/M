@@ -8,6 +8,7 @@ import {
   skills,
 } from "@/content/experience";
 import { AboutHeadshotStack, AboutPhotoCarousel } from "@/components/AboutPhotoSlots";
+import { currentWork } from "@/content/currentWork";
 
 export const metadata = { title: "About" };
 
@@ -26,15 +27,27 @@ export default function AboutPage() {
           </p>
           <div className="mt-6 space-y-4 text-base leading-relaxed text-ink-soft">
             <p>
-              CS &amp; Engineering student on the AI/ML track at UMD. I work on systems where
-              ranking, routing, and risk stay auditable: matchers you can inspect, pipelines with
-              event logs, and models with readable contribution lists.
+              UMD CS and Engineering student on the AI/ML track. I specialize in software
+              development and applied AI, and I have led technical projects that connect engineering
+              work to product goals and user needs. Day to day that means programming, system
+              design, and careful analysis, plus the coordination it takes to ship with a team.
             </p>
             <p>
-              Outside coursework I lead App Dev Club engineering work, research interpretable ML,
-              and prototype LLM tools for security triage. This site pairs personal demos you can
-              run with selected internship and club interface screenshots.
+              Recent work spans App Dev Club engineering, interpretable ML research, security side
+              LLM prototypes, and partner delivery on Exiger and Booz Allen engagements. I care
+              about intelligent tools that stay understandable, and about growing through real
+              collaboration rather than solo demos alone.
             </p>
+            <div className="rounded-2xl bg-paper-soft px-4 py-4">
+              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-muted">
+                Core competencies
+              </p>
+              <p className="mt-2 text-sm text-ink-soft">
+                Software engineering · Artificial intelligence · Product management · Data analysis
+                · System design · Project coordination · UX collaboration · Technical documentation
+                · Agile development · Cross functional leadership
+              </p>
+            </div>
           </div>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
@@ -44,10 +57,10 @@ export default function AboutPage() {
               Download resume
             </Link>
             <Link
-              href="/#projects"
+              href="/#current"
               className="rounded-full border border-black/10 px-5 py-2.5 text-sm font-medium"
             >
-              See projects
+              Current work
             </Link>
           </div>
         </div>
@@ -55,9 +68,20 @@ export default function AboutPage() {
 
       <AboutPhotoCarousel />
 
+      <section className="mt-16 rounded-showcase border border-black/5 bg-paper-soft p-6 md:p-8">
+        <p className="section-eyebrow section-eyebrow--about">{currentWork.title}</p>
+        <h2 className="mt-2 text-2xl font-semibold tracking-tight md:text-3xl">
+          {currentWork.name}
+        </h2>
+        <p className="mt-2 text-sm text-ink-muted">
+          {currentWork.role} · {currentWork.partner} with {currentWork.org} · {currentWork.dates}
+        </p>
+        <p className="mt-4 max-w-3xl text-ink-soft">{currentWork.summary}</p>
+      </section>
+
       <section className="mt-24">
         <p className="section-eyebrow section-eyebrow--about">Experience</p>
-        <h2 className="mt-2 text-3xl font-semibold tracking-tight">Roles &amp; research</h2>
+        <h2 className="mt-2 text-3xl font-semibold tracking-tight">Roles and research</h2>
         <ol className="mt-10 space-y-10">
           {experience.map((job) => (
             <li key={job.role + job.dates} className="grid gap-3 md:grid-cols-[200px_1fr]">
@@ -94,7 +118,7 @@ export default function AboutPage() {
           <div className="mt-4 space-y-5">
             {Object.entries(skills).map(([group, items]) => (
               <div key={group}>
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-ink">
+                <h3 className="text-sm font-semibold uppercase tracking-[0.08em] text-ink">
                   {group}
                 </h3>
                 <p className="mt-2 text-ink-soft">{items.join(" · ")}</p>
