@@ -27,16 +27,27 @@ export default function AboutPage() {
           </p>
           <div className="mt-6 space-y-4 text-base leading-relaxed text-ink-soft">
             <p>
-              Software engineer on UMD&apos;s CS and Engineering AI/ML track. I build systems where
-              ranking, routing, and risk stay auditable, with matchers you can inspect, pipelines
-              with event logs, and models with readable contribution lists.
+              UMD CS and Engineering student on the AI/ML track. I specialize in software
+              development and applied AI, and I have led technical projects that connect engineering
+              work to product goals and user needs. Day to day that means programming, system
+              design, and careful analysis, plus the coordination it takes to ship with a team.
             </p>
             <p>
-              Primary work is software and AI/ML engineering across App Dev Club projects,
-              interpretable ML research, and security triage prototypes. I also carry clear PM
-              signals from scoping features, aligning stakeholders, and shipping with teams on the
-              Exiger portal and current Booz Allen engagement.
+              Recent work spans App Dev Club engineering, interpretable ML research, security side
+              LLM prototypes, and partner delivery on Exiger and Booz Allen engagements. I care
+              about intelligent tools that stay understandable, and about growing through real
+              collaboration rather than solo demos alone.
             </p>
+            <div className="rounded-2xl bg-paper-soft px-4 py-4">
+              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-muted">
+                Core competencies
+              </p>
+              <p className="mt-2 text-sm text-ink-soft">
+                Software engineering · Artificial intelligence · Product management · Data analysis
+                · System design · Project coordination · UX collaboration · Technical documentation
+                · Agile development · Cross functional leadership
+              </p>
+            </div>
           </div>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link

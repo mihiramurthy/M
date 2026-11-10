@@ -317,6 +317,95 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "relay-net",
+    name: "RelayNet",
+    tagline: "TensorFlow early warning for microservice SLO breaches",
+    short:
+      "Conv1D classifier on golden signal windows that separates healthy traffic from latency, error, and saturation risk, with portable JS inference and open eval metrics.",
+    tags: ["ml", "backend"],
+    featured: true,
+    stage: "pine",
+    role: "ML / reliability engineer",
+    type: "Personal project",
+    tools: ["TensorFlow", "Keras", "NumPy", "scikit-learn", "Node.js"],
+    problem:
+      "Dashboards show latency, errors, saturation, and traffic, but on-call still needs a short horizon guess about which failure mode is forming before the SLO page lights up.",
+    approach:
+      "Synthesize multivariate telemetry windows, train a TensorFlow Conv1D network, export weights to JSON, and run the same forward pass in JS so the portfolio demo matches training.",
+    architecture: [
+      "Synthetic golden signal windows (32 steps × 8 channels)",
+      "Keras Conv1D → GlobalAveragePooling → Dense softmax",
+      "Portable model.json for JS inference",
+      "Held out accuracy, macro F1, and confusion matrix",
+    ],
+    tech: ["Python", "TensorFlow", "Keras", "NumPy", "Node.js"],
+    highlights: [
+      "Real TensorFlow training script with EarlyStopping",
+      "~94% held out accuracy / macro F1 on noisy synthetic regimes",
+      "Interactive demo with class probabilities and channel energy",
+    ],
+    sections: [
+      {
+        id: "overview",
+        label: "Overview",
+        eyebrow: "Overview",
+        title: "Classify the failure mode early.",
+        body: [
+          "RelayNet reads a short window of latency, errors, CPU, memory, RPS, queue depth, GC pauses, and downstream latency, then returns healthy, latency risk, error risk, or saturation risk.",
+        ],
+      },
+      {
+        id: "research",
+        label: "Research & Insights",
+        eyebrow: "Research & Insights",
+        title: "Charts are not a decision.",
+        body: [
+          "On-call needs a compact hypothesis. A Conv1D over the recent window captures rising slopes and bursts better than a single snapshot threshold.",
+        ],
+        insight: {
+          title: "Key insights",
+          points: [
+            {
+              lead: "Train in TensorFlow,",
+              text: "ship a portable JSON graph so the web demo does not need a Python runtime.",
+            },
+            {
+              lead: "Keep eval honest,",
+              text: "label noise and overlapping regimes bring accuracy into a believable band instead of a perfect toy score.",
+            },
+          ],
+        },
+      },
+      {
+        id: "solution",
+        label: "The Solution",
+        eyebrow: "The Solution",
+        title: "Train, export, replay.",
+        body: [
+          "One training script writes model, metrics, and example windows. The Next demo and Express UI both call the same JS forward pass.",
+        ],
+      },
+      {
+        id: "execution",
+        label: "Execution",
+        eyebrow: "Execution",
+        title: "Reproducible ML you can click.",
+        body: [
+          "Artifacts are committed. Retrain with npm run train when you change the synthesizer. Tests assert demo examples still produce valid class outputs.",
+        ],
+      },
+    ],
+    repoPath: "projects/relay-net",
+    demoPath: "/demos/relay-net",
+    port: 4310,
+    run: [
+      "cd projects/relay-net",
+      "pip install -r requirements.txt && npm install",
+      "npm run train && npm test && npm run dev",
+      "# http://localhost:4310",
+    ],
+  },
+  {
     slug: "care-atlas",
     name: "CareAtlas",
     tagline: "Find care you can actually afford",

@@ -196,10 +196,28 @@ function ConcurrencyFinderUI() {
   );
 }
 
+function RelayNetUI() {
+  return (
+    <div className="space-y-2 p-3 text-[9px] text-ink">
+      <p className="font-semibold">RelayNet · window 32</p>
+      <div className="rounded-lg bg-white p-2 shadow-sm">
+        <p className="text-[8px] text-ink-muted">pred</p>
+        <p className="text-sm font-bold text-emerald-800">latency_risk</p>
+        <p className="font-mono text-[8px] text-ink-muted">conf 0.86</p>
+      </div>
+      <div className="space-y-1 font-mono text-[8px] text-ink-muted">
+        <p>p95 ↑ · downstream ↑</p>
+        <p>err steady · cpu mild</p>
+      </div>
+    </div>
+  );
+}
+
 const ui: Record<string, React.ReactNode> = {
   "concurrency-finder": <ConcurrencyFinderUI />,
   "proof-debugger": <ProofDebuggerUI />,
   "token-lens": <TokenLensUI />,
+  "relay-net": <RelayNetUI />,
   "care-atlas": <CareAtlasUI />,
   "claim-trail": <ClaimTrailUI />,
   "aquifer-net": <AquiferUI />,
@@ -238,6 +256,7 @@ export function ProjectShowcaseCard({
         {project.slug === "wattline" ||
         project.slug === "aquifer-net" ||
         project.slug === "token-lens" ||
+        project.slug === "relay-net" ||
         project.slug === "proof-debugger" ||
         project.slug === "concurrency-finder" ? (
           <Laptop>{ui[project.slug]}</Laptop>

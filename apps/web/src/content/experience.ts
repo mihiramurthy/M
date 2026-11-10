@@ -3,9 +3,9 @@ export const profile = {
   email: "mmurthy1@terpmail.umd.edu",
   phone: "669-261-0364",
   linkedin: "https://www.linkedin.com/in/mihiramurthy/",
-  headline: "Software engineer focused on AI and ML systems",
+  headline: "Software engineer and AI student who can also ship with a team",
   supporting:
-    "CS and Engineering AI/ML track at UMD. Fullstack, backend, and ML systems first, with product delivery experience from shipping with teams.",
+    "UMD CS and Engineering AI/ML track. Strengths in software engineering, applied AI, system design, and light product coordination.",
   school: {
     name: "University of Maryland",
     degree: "B.S. Computer Science and Engineering (AI/ML track)",
