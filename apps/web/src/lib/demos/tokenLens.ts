@@ -120,7 +120,7 @@ export function recommendRouting(input: {
     action: "downgrade" as const,
     from: input.model,
     to,
-    reason: `Prompt classified ${level} with quality ${q.toFixed(2)} — flagship spend is likely waste.`,
+    reason: `Prompt classified ${level} with quality ${q.toFixed(2)}; flagship spend is likely waste.`,
     estimatedSavingsUsd: Number(Math.max(0, input.costUsd - altCost).toFixed(6)),
   };
 }

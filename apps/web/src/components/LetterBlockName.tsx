@@ -2,13 +2,23 @@ const LETTERS = ["M", "I", "H", "I", "R", "A"] as const;
 
 const TILTS = [-3.5, 2.2, -1.8, 3.1, -2.4, 1.6];
 
+/** Maansi/droppit-inspired alternating tiles: ink, blush, cream. */
+const TILE_CLASS = [
+  "letter-block letter-block--ink",
+  "letter-block letter-block--blush",
+  "letter-block letter-block--cream",
+  "letter-block letter-block--ink",
+  "letter-block letter-block--blush",
+  "letter-block letter-block--cream",
+] as const;
+
 export function LetterBlockName() {
   return (
     <div className="flex flex-wrap items-center gap-1.5 sm:gap-2" aria-label="Mihira">
       {LETTERS.map((letter, i) => (
         <span
           key={`${letter}-${i}`}
-          className={`letter-block ${i === 2 ? "!bg-accent-blush !text-ink" : ""}`}
+          className={TILE_CLASS[i]}
           style={{ transform: `rotate(${TILTS[i]}deg)` }}
         >
           {letter}

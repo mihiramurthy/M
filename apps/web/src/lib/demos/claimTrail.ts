@@ -29,7 +29,7 @@ export const PRESETS = [
     label: "Viral absolutist claim (young domain)",
     url: "https://viral-share.test/post/1",
     claim:
-      "BREAKING: you won't believe the entire Eastern grid failed last night — share before it's deleted",
+      "BREAKING: you won't believe the entire Eastern grid failed last night. Share before it's deleted",
   },
   {
     id: "reuters-local",
@@ -167,7 +167,7 @@ export function analyzeClaim(url: string, claim: string): ClaimJob {
       band,
       factors,
       disclaimer:
-        "Heuristic provenance score for demo — not a factual verdict. Always verify with primary sources.",
+        "Heuristic provenance score for demo, not a factual verdict. Always verify with primary sources.",
     },
   };
 }

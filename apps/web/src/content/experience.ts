@@ -3,9 +3,9 @@ export const profile = {
   email: "mmurthy1@terpmail.umd.edu",
   phone: "669-261-0364",
   linkedin: "https://www.linkedin.com/in/mihiramurthy/",
-  headline: "Building systems that make complex decisions legible",
+  headline: "Building systems that keep complex decisions inspectable",
   supporting:
-    "CS & Engineering (AI/ML) at UMD — fullstack products, backend pipelines, and ML tools with explainable guts.",
+    "CS & Engineering (AI/ML) at UMD: fullstack products, backend pipelines, and ML tools with readable decision paths.",
   school: {
     name: "University of Maryland",
     degree: "B.S. Computer Science and Engineering (AI/ML track)",
@@ -16,11 +16,11 @@ export const profile = {
 
 export const experience = [
   {
-    role: "Project Lead — Booz Allen Hamilton",
+    role: "Project Lead, Booz Allen Hamilton",
     org: "UMD App Dev Club",
     dates: "Aug 2026 – Present",
     bullets: [
-      "Lead 15 engineers on an AI-driven DevOps monitoring framework on Datadog — asset metrics, alert thresholds, real-time and trend monitoring.",
+      "Lead 15 engineers on an AI-driven DevOps monitoring framework on Datadog: asset metrics, alert thresholds, real-time and trend monitoring.",
       "Architect a multi-agent system that diagnoses root causes, recommends remediation, and automates ticketing/config changes across AWS before downtime.",
       "Build chatbots that summarize ecosystem health, forecast issues (e.g. disk exhaustion), and turn alerts into guided next steps.",
     ],
@@ -43,7 +43,7 @@ export const experience = [
     ],
   },
   {
-    role: "Frontend Engineer & PM — Exiger",
+    role: "Frontend Engineer & PM, Exiger",
     org: "UMD App Dev Club",
     dates: "Aug 2025 – May 2026",
     bullets: [
@@ -80,8 +80,8 @@ export const skills = {
 
 export const activities = [
   "Math 141 Teaching Assistant",
-  "Social Media Director — UMD App Dev Club",
-  "PR Team — Maryland Mayuri",
+  "Social Media Director, UMD App Dev Club",
+  "PR Team, Maryland Mayuri",
 ];
 
 export const awards = [

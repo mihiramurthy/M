@@ -1,6 +1,6 @@
 /** Private / employer & club screenshot case studies.
  * Add new projects by appending to `pastWorkProjects` and dropping webps under
- * `public/past-work/<slug>/`. Slides are screenshot-proof only — no source links.
+ * Maintainer note: slides live under public/past-work/<slug>/.
  */
 
 export type PastWorkSlide = {
@@ -29,7 +29,7 @@ function slides(
   return items.map((s) => ({
     src: `/past-work/${slug}/${s.file}`,
     caption: s.caption,
-    alt: s.alt ?? `${slug} — ${s.caption}`,
+    alt: s.alt ?? `${slug}: ${s.caption}`,
   }));
 }
 
@@ -41,7 +41,7 @@ export const pastWorkProjects: PastWorkProject[] = [
     role: "Frontend Engineer & PM",
     dates: "Aug 2025 – May 2026",
     summary:
-      "Supplier risk management portal for AI-powered TPRM — Product Catalog, Orders, Work, and Messaging with searchable color-coded risk scores. Screenshot proof only; no source links.",
+      "Supplier risk management portal for AI-powered TPRM: Product Catalog, Orders, Work, and Messaging with searchable color-coded risk scores.",
     bullets: [
       "Developed a supplier risk management portal for AI-powered TPRM from purchase orders, payment/credit history, and compliance posture.",
       "Led schema/system design for Okta-backed 2FA and company-scoped registration across frontend and backend.",
@@ -50,16 +50,16 @@ export const pastWorkProjects: PastWorkProject[] = [
     tags: ["frontend", "PM", "TPRM"],
     stage: "olive",
     slides: slides("exiger-supplier-portal", [
-      { file: "slide-01.webp", caption: "Settings — my account" },
-      { file: "slide-02.webp", caption: "Manage — documents" },
-      { file: "slide-03.webp", caption: "Product catalog — part detail & risk" },
+      { file: "slide-01.webp", caption: "Settings: my account" },
+      { file: "slide-02.webp", caption: "Manage: documents" },
+      { file: "slide-03.webp", caption: "Product catalog: part detail & risk" },
       { file: "slide-04.webp", caption: "Orders / risk detail" },
       { file: "slide-05.webp", caption: "Work overview" },
       { file: "slide-06.webp", caption: "Messaging entry" },
       { file: "slide-07.webp", caption: "Product catalog list" },
       { file: "slide-08.webp", caption: "Catalog search & hierarchy" },
-      { file: "slide-09.webp", caption: "Manage — supplier overview" },
-      { file: "slide-10.webp", caption: "Work — overview tasks" },
+      { file: "slide-09.webp", caption: "Manage: supplier overview" },
+      { file: "slide-10.webp", caption: "Work: overview tasks" },
       { file: "slide-11.webp", caption: "Questionnaire / work flow" },
       { file: "slide-12.webp", caption: "Task filters" },
       { file: "slide-13.webp", caption: "Risk analysis" },
@@ -69,19 +69,19 @@ export const pastWorkProjects: PastWorkProject[] = [
       { file: "slide-17.webp", caption: "Orders list" },
       { file: "slide-18.webp", caption: "Dashboard / activity" },
       { file: "slide-19.webp", caption: "Tasks board with filters" },
-      { file: "slide-20.webp", caption: "Catalog — filtered product view" },
-      { file: "slide-21.webp", caption: "Settings — workspace members" },
-      { file: "slide-22.webp", caption: "Settings — account & members nav" },
+      { file: "slide-20.webp", caption: "Catalog: filtered product view" },
+      { file: "slide-21.webp", caption: "Settings: workspace members" },
+      { file: "slide-22.webp", caption: "Settings: account & members nav" },
     ]),
   },
   {
     slug: "rtx-url-profiling",
     name: "URL → supplier capability profile",
-    org: "Nokia internship — Product Security PoC",
+    org: "Nokia internship: Product Security PoC",
     role: "AI Solution Engineering Intern",
     dates: "May 2026 – Aug 2026",
     summary:
-      "Screenshot proof of an AI-assisted profiling PoC: start from a public company URL, scrape a small page budget, and emit structured capability / legal-identity sections. Demo input shown is a public corporate site — not a claim about shipping RTX product IP.",
+      "AI-assisted profiling prototype: start from a public company URL, scrape a small page budget, and emit structured capability and legal-identity sections. Demo input is a public corporate site.",
     bullets: [
       "Designed AI/ML proofs of concept for Product Security as independent microservices with architecture partners.",
       "Built tooling that turns a start URL into structured supplier / capability profile sections for review.",
@@ -91,7 +91,7 @@ export const pastWorkProjects: PastWorkProject[] = [
     slides: slides("rtx-url-profiling", [
       { file: "slide-01.webp", caption: "Capability profile from URL" },
       { file: "slide-02.webp", caption: "Legal identity & structure" },
-      { file: "slide-03.webp", caption: "Generation config — start URL" },
+      { file: "slide-03.webp", caption: "Generation config: start URL" },
       { file: "slide-04.webp", caption: "Corporate structure mapping" },
     ]),
   },
@@ -102,7 +102,7 @@ export const pastWorkProjects: PastWorkProject[] = [
     role: "Fullstack contributor",
     dates: "Club platform",
     summary:
-      "Internal platform for recruitment, onboarding, and team ops — teams, meetings, events, settings, and IAM sign-in. Screenshot proof only.",
+      "Internal platform for recruitment, onboarding, and team ops: teams, meetings, events, settings, and IAM sign-in.",
     bullets: [
       "Contributed fullstack to an internal platform used by 700+ App Dev Club members for recruitment, onboarding, and team ops.",
       "Built recruitment/ATS features: role posting, Kanban pipeline, collaborative review.",
@@ -111,12 +111,12 @@ export const pastWorkProjects: PastWorkProject[] = [
     tags: ["fullstack", "IAM", "ops"],
     stage: "slate",
     slides: slides("adc-people-portal", [
-      { file: "slide-01.webp", caption: "Team detail — members & resources" },
+      { file: "slide-01.webp", caption: "Team detail: members & resources" },
       { file: "slide-02.webp", caption: "Teams list" },
-      { file: "slide-03.webp", caption: "Events — RSVP & attendance" },
-      { file: "slide-04.webp", caption: "Sign-in — App Dev IAM / OpenID" },
+      { file: "slide-03.webp", caption: "Events: RSVP & attendance" },
+      { file: "slide-04.webp", caption: "Sign-in: App Dev IAM / OpenID" },
       { file: "slide-05.webp", caption: "Team meetings calendar" },
-      { file: "slide-06.webp", caption: "Team settings — AWS provision" },
+      { file: "slide-06.webp", caption: "Team settings: AWS provision" },
     ]),
   },
   {
@@ -126,7 +126,7 @@ export const pastWorkProjects: PastWorkProject[] = [
     role: "Docs / tech ops",
     dates: "Club platform",
     summary:
-      "Internal documentation for People Portal user & developer guides — team hierarchy, creation flows, and ops notes. Screenshot proof of the docs surface.",
+      "Internal documentation for People Portal user and developer guides: team hierarchy, creation flows, and ops notes.",
     bullets: [
       "People Portal user guide covering team hierarchy (main teams / subteams).",
       "Developer-facing docs for auth, shared resources, and contribution guidelines.",
@@ -147,7 +147,7 @@ export const pastWorkProjects: PastWorkProject[] = [
     role: "Platform surface",
     dates: "Club platform",
     summary:
-      "Explore view across partner-org repositories (IonQ, Kuiper, and other club project orgs). Screenshot proof only — no repo access claims beyond the UI shown.",
+      "Explore view across partner-org repositories (IonQ, Kuiper, and other club project orgs).",
     bullets: [
       "Browse repositories, users, and organizations from a unified explore UI.",
       "Surfaces partner project repos used across App Dev Club engagements.",

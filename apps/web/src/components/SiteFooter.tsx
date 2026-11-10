@@ -2,10 +2,11 @@ import { profile } from "@/content/experience";
 
 export function SiteFooter() {
   return (
-    <footer id="connect" className="border-t border-black/5 pb-28 pt-16">
+    <footer id="connect" className="connect-shell border-t border-black/5 pb-28 pt-16">
       <div className="mx-auto max-w-6xl px-6 md:px-10">
-        <h2 className="font-sans text-4xl font-semibold tracking-tight text-ink md:text-5xl">
-          Let&apos;s connect!
+        <p className="section-eyebrow section-eyebrow--connect">Contact</p>
+        <h2 className="mt-3 font-sans text-4xl font-semibold tracking-tight text-ink md:text-5xl">
+          Let&apos;s connect
         </h2>
         <div className="mt-5 flex flex-wrap items-center gap-5 text-base text-ink-soft">
           <a
@@ -33,9 +34,7 @@ export function SiteFooter() {
         </div>
         <div className="mt-14 flex flex-col gap-2 text-sm text-ink-muted md:flex-row md:items-end md:justify-between">
           <p>
-            Made with curiosity in College Park · Built with Next.js
-            <br />
-            Original demos — not employer IP.
+            College Park, MD · Built with Next.js
           </p>
           <p>© {new Date().getFullYear()} {profile.name}</p>
         </div>

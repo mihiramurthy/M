@@ -132,7 +132,7 @@ export function runForbearanceTrap({
     totalInterest: round2(accrued + after.totalInterest),
     forgiven: 0,
     warning:
-      "Interest accrued during forbearance is capitalized — balance jumps before repayment resumes.",
+      "Interest accrued during forbearance is capitalized: balance jumps before repayment resumes.",
   };
 }
 

@@ -4,7 +4,7 @@ import "./globals.css";
 import { FloatingNav } from "@/components/FloatingNav";
 import { SiteFooter } from "@/components/SiteFooter";
 
-/** Self-hosted — avoids next/font/google build-time fetches that Turbopack
+/** Self-hosted fonts: avoids next/font/google build-time fetches that Turbopack
  *  reports as Module not found on Vercel when fonts.gstatic.com flakes. */
 const sans = localFont({
   src: "../fonts/plus-jakarta-sans-latin-wght-normal.woff2",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     template: "%s · Mihira Murthy",
   },
   description:
-    "Personal portfolio of Mihira Murthy — UMD CS & Engineering (AI/ML). Original demos across fullstack, backend, ML, and frontend.",
+    "Personal portfolio of Mihira Murthy: UMD CS & Engineering (AI/ML). Projects across fullstack, backend, ML, and frontend.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

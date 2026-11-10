@@ -107,7 +107,7 @@ export function CareAtlasDemo() {
         ))}
         {prep && (
           <div className="rounded-2xl border border-accent/30 bg-white p-4">
-            <h3 className="text-lg font-semibold">Visit prep — {prep.clinicName}</h3>
+            <h3 className="text-lg font-semibold">Visit prep: {prep.clinicName}</h3>
             <ul className="mt-3 space-y-2 text-sm text-ink-soft">
               {prep.items.map((item) => (
                 <li key={item.id}>

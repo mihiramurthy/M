@@ -1,12 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 const items = [
   {
     href: "/",
     label: "Home",
+    tone: "nav-home",
     icon: (
       <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.7">
         <path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-9.5Z" strokeLinejoin="round" />
@@ -16,6 +18,7 @@ const items = [
   {
     href: "/about",
     label: "About",
+    tone: "nav-about",
     icon: (
       <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.7">
         <circle cx="12" cy="12" r="9" />
@@ -28,6 +31,7 @@ const items = [
   {
     href: "/#connect",
     label: "Contact",
+    tone: "nav-connect",
     icon: (
       <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.7">
         <circle cx="12" cy="8" r="3.2" />
@@ -35,10 +39,23 @@ const items = [
       </svg>
     ),
   },
-];
+] as const;
+
+function scrollToConnect() {
+  document.getElementById("connect")?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
 
 export function FloatingNav() {
   const pathname = usePathname();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (pathname !== "/") return;
+    if (typeof window === "undefined") return;
+    if (window.location.hash === "#connect") {
+      requestAnimationFrame(() => scrollToConnect());
+    }
+  }, [pathname]);
 
   return (
     <nav
@@ -52,13 +69,24 @@ export function FloatingNav() {
             : item.href.startsWith("/#")
               ? false
               : pathname.startsWith(item.href);
+
         return (
           <Link
             key={item.href}
             href={item.href}
             aria-label={item.label}
-            className={`rounded-full p-3 transition ${
-              active ? "bg-ink text-white" : "text-ink-muted hover:bg-paper-soft hover:text-ink"
+            onClick={(e) => {
+              if (item.href !== "/#connect") return;
+              e.preventDefault();
+              if (pathname === "/") {
+                scrollToConnect();
+                window.history.replaceState(null, "", "/#connect");
+              } else {
+                router.push("/#connect");
+              }
+            }}
+            className={`rounded-full p-3 transition ${item.tone} ${
+              active ? "is-active text-white" : "text-ink-muted hover:bg-paper-soft hover:text-ink"
             }`}
           >
             {item.icon}
