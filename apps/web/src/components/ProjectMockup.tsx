@@ -296,10 +296,10 @@ export function ProjectHeroStage({ project }: { project: Project }) {
               Live demo
             </a>
             <a
-              href="/Mihira_Murthy_Resume.pdf"
+              href="/#projects"
               className="rounded-full border border-white/30 px-5 py-2.5 text-sm font-medium text-white"
             >
-              Resume
+              All projects
             </a>
           </div>
         </div>

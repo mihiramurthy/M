@@ -26,14 +26,6 @@ export const experience = [
     ],
   },
   {
-    role: "Undergraduate AI/ML Research Assistant",
-    org: "University of Maryland · Prof. Yang",
-    dates: "Aug 2026 to present",
-    bullets: [
-      "Study approximation, optimization, and generalization theory for more interpretable deep learning regression and PDE solvers.",
-    ],
-  },
-  {
     role: "AI Solution Engineering Intern",
     org: "Nokia",
     dates: "May 2026 to Aug 2026",
