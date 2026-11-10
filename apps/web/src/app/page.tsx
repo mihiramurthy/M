@@ -37,9 +37,9 @@ export default function HomePage() {
             </p>
           </div>
           <div className="animate-fade-up-late space-y-3 text-right font-mono text-[11px] uppercase leading-relaxed tracking-[0.12em] text-ink-muted md:pb-2">
-            <p>Primary focus. Software and AI/ML engineering.</p>
+            <p>Primary focus is software and AI/ML engineering.</p>
             <p>Depth across fullstack, backend, ML, and frontend.</p>
-            <p>Clear PM signals from scoping and shipping with teams.</p>
+            <p>PM signals from scoping and shipping with teams.</p>
             <p>Open to software engineering internships.</p>
             <p className="pt-2 normal-case tracking-normal text-ink-soft">
               {profile.school.name} · {profile.school.dates}
