@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { LetterBlockName } from "@/components/LetterBlockName";
 import { ProjectBrowser } from "@/components/ProjectBrowser";
 import { CurrentWorkCard } from "@/components/CurrentWorkCard";
@@ -14,12 +13,6 @@ export default function HomePage() {
             <span className="rounded-full border border-black/10 bg-white px-3 py-1">UMD</span>
             <span className="rounded-full border border-black/10 bg-white px-3 py-1">AI / ML</span>
             <span className="rounded-full border border-black/10 bg-white px-3 py-1">App Dev Club</span>
-            <Link
-              href="/Mihira_Murthy_Resume.pdf"
-              className="rounded-full bg-ink px-3 py-1 font-medium text-white"
-            >
-              Resume
-            </Link>
           </div>
         </div>
 

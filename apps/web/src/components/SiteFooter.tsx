@@ -28,9 +28,6 @@ export function SiteFooter() {
             </svg>
             <span className="sr-only md:not-sr-only md:inline">{profile.email}</span>
           </a>
-          <a href="/Mihira_Murthy_Resume.pdf" className="link-quiet font-medium">
-            Resume
-          </a>
         </div>
         <div className="mt-14 flex flex-col gap-2 text-sm text-ink-muted md:flex-row md:items-end md:justify-between">
           <p>
